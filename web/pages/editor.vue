@@ -1,51 +1,41 @@
 <template>
-  <el-container style="max-width:1140px;margin: 0 auto;">
+  <el-container style='max-width:970pxmargin: 0 auto'>
     <el-header>Header</el-header>
     <el-container>
-      <el-aside width="300px">Aside</el-aside>
+      <el-aside width='300px'>Aside</el-aside>
       <el-main>
-        <div v-html="html" class="markdown-body">
+        <div v-html='html' class='markdown-body'>
         </div>
-        
 
-        <el-select
-    v-model="value10"
-    multiple
-    filterable
-    allow-create
-    placeholder="请选择文章标签">
-    <el-option
-      v-for="item in options5"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value">
-    </el-option>
-  </el-select>
+        <el-select v-model='value10' multiple filterable allow-create placeholder='请选择文章标签'>
+          <el-option v-for='item in options5' :key='item.value' :label='item.label' :value='item.value'>
+          </el-option>
+        </el-select>
 
-  <p>book:{{ countn }}</p>
-  <button @click="clickCounterBtn">{{ countn }}</button>
+        <p>book:{{ countn }}</p>
+        <button @click='clickCounterBtn'>{{ countn }}</button>
 
-  <p>project title:{{ $store.state.project }}</p>
-  <button @click="clickTitleBtn">settitlebtn</button>
+        <p>project title:{{ $store.state.project }}</p>
+        <button @click='clickTitleBtn'>settitlebtn</button>
 
-  <br/><br/>
-  <button v-on:click="countery += 1">增加 1</button>
-  <p>这个按钮被点击了 {{ countery }} 次。</p>
+        <br/>
+        <br/>
+        <button v-on:click='countery += 1'>增加 1</button>
+        <p>这个按钮被点击了 {{ countery }} 次。</p>
 
-  <p>
-    <button @click="getMockUser">getMockUser</button>
-  </p>
+        <p>
+          <button @click='getMockUser'>getMockUser</button>
+        </p>
 
-  <mavon-editor v-model="intro" @change="editorChange" />
-
-
+        <mavon-editor v-model='intro' @change='editorChange' />
 
       </el-main>
-    </el-container>
-  
+      </el-container>
+
     <el-footer>Footer</el-footer>
   </el-container>
 </template>
+
 
 <script>
 import axios from 'axios'
@@ -83,14 +73,15 @@ articleId
 export default {
   // asyncData会同步为客户端的data，同时在浏览器渲染前设置
   // 可以完全代替vue data
-  // 
   // 使用async与await关键字，在服务器端拉取接口，相当于服务器端iris在渲染view之前从db中拉取数据
   // asyncData与fetch的不同在于，fetch可更新store对象，适用于拉取多页内共享的数据对象；asyncData适用于管理本页局部数据对象。
   // asyncData先于fetch执行
   async asyncData (context) {
     // console.log('|||===asyncData===||||')
     // 由于asyncData方法是在组件 初始化 前被调用的，所以在方法内是没有办法通过 this 来引用组件的实例对象
-    let { data } = await axios.get('https://api.douban.com/v2/book/isbn/:9787111128069')
+    let { data } = await axios.get(
+      'https://api.douban.com/v2/book/isbn/:9787111128069'
+    )
     console.log('========book=========', data.id)
 
     return {
@@ -98,16 +89,20 @@ export default {
       project: 'nuxt123',
       countn: 100,
       title: '==',
-      options5: [{
-        value: 'HTML',
-        label: 'HTML'
-      }, {
-        value: 'CSS',
-        label: 'CSS'
-      }, {
-        value: 'JavaScript',
-        label: 'JavaScript'
-      }],
+      options5: [
+        {
+          value: 'HTML',
+          label: 'HTML'
+        },
+        {
+          value: 'CSS',
+          label: 'CSS'
+        },
+        {
+          value: 'JavaScript',
+          label: 'JavaScript'
+        }
+      ],
       value10: [],
       html: result,
       intro: '',
@@ -155,8 +150,9 @@ export default {
     // console.log('|||===fetch===||||')
     // 在多个页面同时可能用到的数据，不知道在哪个页面先被加载过
     // 可以存在store中，使用前先做个判断，如果为null，则加载；否则直接取用
-    return axios.get('https://api.douban.com/v2/book/isbn/:9787111128069')
-      .then((res) => {
+    return axios
+      .get('https://api.douban.com/v2/book/isbn/:9787111128069')
+      .then(res => {
         console.log('---------------------=========', res.data.id)
         // 向store传值
         store.commit('setBook', res.data.id)
@@ -164,15 +160,15 @@ export default {
   },
   methods: {
     getMockUser () {
-      axios.get('user.json')
-        .then((res) => {
-          console.log('GET MOCK USER====', res.data)
-        })
+      axios.get('user.json').then(res => {
+        console.log('GET MOCK USER====', res.data)
+      })
     },
     clickTitleBtn () {
       // 将数据记录在store中的更新方法
-      this.$store.state.project = (new Date()).toString()
+      this.$store.state.project = new Date().toString()
     },
+
     clickCounterBtn () {
       console.log(this.countn)
       this.countn += 2
@@ -185,11 +181,9 @@ export default {
     }
   },
   data () {
-    return {
-    }
+    return {}
   },
-  components: {
-  }
+  components: {}
 }
 </script>
 
@@ -197,7 +191,7 @@ export default {
 .el-header,
 .el-footer {
   background-color: #b3c0d1;
-  color: #333;
+  color: "#333";
   text-align: center;
   line-height: 60px;
 }
@@ -213,7 +207,7 @@ export default {
   background-color: #e9eef3;
   color: #333;
   text-align: left;
-  /* line-height: 160px; */
+  /* line-height: 160px */
 }
 
 body > .el-container {
