@@ -1,5 +1,9 @@
 # dependencies
 node_modules
+.DS_Store
+web/pages/.DS_Store
+web/static/static/.DS_Store
+web/static/static/image/.DS_Store
 
 # logs
 npm-debug.log
