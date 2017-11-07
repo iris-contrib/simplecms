@@ -5,7 +5,7 @@
       <div class="sc-previewbar"></div>
     </el-header>
     <!-- 顶部导航 -->
-    <div class="sc-container" style="width:970px;">
+    <div class="sc-container position-sticky sticky-top" style="width:970px;z-index:100;">
       <el-menu class="sc-topmenu" :default-active="activeIndex1" mode="horizontal" @select="handleSelect" background-color="#006696" text-color="#f3f3f3" active-text-color="#fff">
         <el-menu-item index="1"><a href="/">首页</a></el-menu-item>
         <el-submenu index="2">
@@ -20,13 +20,23 @@
           <el-menu-item index="2-2">选项2</el-menu-item>
           <el-menu-item index="2-3">选项3</el-menu-item>
         </el-submenu>
-        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">科研</a></el-menu-item>
-        <el-menu-item index="5"><a href="https://www.ele.me" target="_blank">教学</a></el-menu-item>
-        <el-menu-item index="6"><a href="https://www.ele.me" target="_blank">招贤纳士</a></el-menu-item>
-        <el-menu-item index="7"><a href="https://www.ele.me" target="_blank">联系方式</a></el-menu-item>
+        <el-menu-item index="4"><a href="#" target="_blank">科研</a></el-menu-item>
+        <el-menu-item index="5"><a href="#" target="_blank">教学</a></el-menu-item>
+        <el-menu-item index="6"><a href="#" target="_blank">招贤纳士</a></el-menu-item>
+        <el-menu-item index="7"><a href="#" target="_blank">联系方式</a></el-menu-item>
       </el-menu>
+      <!-- 灰色背景分隔条 -->
+      <el-row>
+        <el-col :span="24" style="background-color:#f2f2f2;height:20px;"></el-col>
+      </el-row>
     </div>
     <nuxt/>
+    <!-- 灰色背景分隔条 -->
+    <div class="sc-container">
+      <el-row>
+        <el-col :span="24" style="background-color:#f2f2f2;height:20px;"></el-col>
+      </el-row>
+    </div>
     <el-footer>
       <div class="sc-container">
         <el-row :gutter="10">
@@ -71,10 +81,14 @@ body{
 }
 a {
   text-decoration: none;
-  color:#333;
+  color:#000;
 }
 a:hover{
-  color: rgba(72, 72, 72, 0.9);
+  color: #6553AB;
+}
+.el-main{
+  padding:0;
+  overflow: hidden;
 }
 .sc-previewbar{
   height:130px;
@@ -90,7 +104,7 @@ a:hover{
   background-repeat: no-repeat;
 }
 .sc-container{
-  max-width:970px;
+  width:970px;
   margin: 0 auto
 }
 .sc-topmenu{

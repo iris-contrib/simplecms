@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
-    "element-ui": "^2.0.2",
+    "element-ui": "^2.0.3",
+    "eslint-plugin-vue": "^2.1.0",
     "markdown-it": "^8.4.0",
     "mavon-editor": "^2.3.0",
     "mockjs": "^1.0.1-beta3",

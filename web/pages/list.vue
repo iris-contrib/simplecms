@@ -1,6 +1,6 @@
 <template>
     <el-container class="sc-main">
-      <el-aside style="max-width:150px;">
+      <el-aside class="sticky-top" style="max-width:150px;">
         <el-menu default-active="3" class="sc-sidemenu" @open="handleOpen" @close="handleClose" :default-openeds="sideMenuDefaultOpenedArray">
           <el-submenu index="1">
             <template slot="title">
@@ -34,17 +34,30 @@
           <el-breadcrumb-item>管理</el-breadcrumb-item>
           <el-breadcrumb-item>活动</el-breadcrumb-item>
         </el-breadcrumb>
-        <!-- 文章 -->
-        <el-row style="padding:30px 40px 30px;">
-          <el-col class="sc-article" :span="24">
-            <div style="text-align:center;padding:30px 0 30px;">
-              <h3>北京市脑科学和类脑计算论坛圆满举行</h3>
-              <p>日期：2017-07-22 13:55&nbsp;&nbsp;作者：王晔</p>
-            </div>
-            <div>
-              <p style="text-align:justify;">2017年7月21日，我院联合北京脑科学与智能技术研究院，在西郊宾馆会议厅，共同组织召开了北京市第四次脑科学和类脑计算论坛。北京市科技信息中心、首都科技条件平台电子信息领域中心和北京灵犀移动通信产业技术创新联盟承办本次论坛。论坛邀请到纽约大学汪小京教授、北京师范大学吴思教授、中科院计算所陈云霁研究员做了相关报告。清华大学类脑计算中心主任施路平教授与主讲嘉宾一起参与了论坛Panel。北京市科技信息中心唐超主任为此次论坛致开幕词。论坛由我院院长曹立宏教授主持。在京高校、科研院所的科研人员与学生，以及企业代表等共约200人参加了本次论坛。</p>
-              <img src="http://nimi.cuc.edu.cn/ckfinder/userfiles/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170722153340.jpg"/>
-            </div>
+        <!-- 文章列表 -->
+        <ul style="margin-top: 40px;padding-left: 0;font-size:14px;line-height:25px;list-style:none">
+          <li v-for="o in 5" :key="o" class="text item">
+            <p style="display:flex">
+              <span style="flex:1;font-size:18px;font-width:bold;">
+                <i class="el-icon-arrow-right"></i>&nbsp;
+                <a href="#">{{'用脑启发的智能列表内容 ' + o }}</a>
+              </span>
+              <span class="small text-muted">2017/09/14</span>
+            </p>
+            <p style="padding:0 100px 30px 25px;text-align:justify;">为促进我国消化内镜事业的进一步发展，由中华医学会、中华医学会消化内镜学分会主办，浙江省医学会、浙江大学医学院附属第一医院和杭州市第一人民医院承办的2017中国消化内镜学术大会于2017年9月1日~3日在浙江省杭州市国际会议中心召开。</p>
+          </li>
+        </ul>
+        <el-row style="padding:0 30px 30px;">
+          <el-col :span="24" style="text-align:center">
+            <el-pagination
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+              :current-page="4"
+              :page-sizes="[100, 200, 300, 400]"
+              :page-size="6"
+              layout="total, prev, pager, next, jumper"
+              :total="100">
+            </el-pagination>
           </el-col>
         </el-row>
       </el-main>
@@ -87,13 +100,9 @@ export default {
 </script>
 
 <style>
-.sc-article img{
-  max-width:100%;
-  display:block;
-  margin:0 auto;
-}
 .sc-main{
-  width:970px;margin: 0px auto;
+  width:970px;
+  margin: 0px auto;
 }
 .sc-sidemenu{
   height:100%;width:149px;
@@ -107,6 +116,6 @@ export default {
 }
 .el-main {
   background-color: #fff;
-  padding: 20px 30px;
+  padding:20px 30px;
 }
 </style>
