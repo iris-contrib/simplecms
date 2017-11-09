@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/admin/welcome">欢迎页</a>
+              <a class="nav-link" href="/admin/welcome">欢迎您</a>
             </li>
           </ul>
           <ul class="navbar-nav">
@@ -39,7 +39,7 @@
             </el-submenu>
             <el-menu-item index="2">
               <i class="el-icon-menu"></i>
-              <span slot="title">导航菜单</span>
+              <span slot="title"><a href="/admin/menu">导航菜单</a></span>
             </el-menu-item>
             <el-submenu index="3">
               <template slot="title">

@@ -20,7 +20,8 @@
     "mavon-editor": "^2.3.0",
     "mockjs": "^1.0.1-beta3",
     "nock": "^9.0.27",
-    "nuxt": "latest"
+    "nuxt": "latest",
+    "vue-sortable-tree": "^1.0.26",
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
