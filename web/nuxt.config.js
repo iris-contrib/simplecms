@@ -34,7 +34,6 @@ module.exports = {
   plugins: [
     { src: '~plugins/element-ui', ssr: true },
     { src: '~plugins/mavon-editor', ssr: false },
-    { src: '~plugins/vue2-lazy-tree', ssr: false },
     { src: '~plugins/mockjs', ssr: true }
   ],
   css: [

@@ -1,18 +1,19 @@
 <template>
   <div>
-    menu
-    <tree
-                ref='tree'
-                :treeData="treeData"
-                :options="options"
-                @node-click="itemClick"
-
-        />
-
+    <el-tree
+      :data="data4"
+      :props="defaultProps"
+      :show-checkbox="false"
+      node-key="id"
+      default-expand-all
+      :expand-on-click-node="false"
+      :render-content="renderContent">
+    </el-tree>
   </div>
 </template>
 
 <script>
+let id = 1000
 export default {
   layout: 'admin',
   head: {
@@ -27,66 +28,82 @@ export default {
   mounted: function () {
   },
   methods: {
-    itemClick (node) {
-      console.log(node.key)
+    append (data) {
+      const newChild = { id: id++, label: 'testtest', children: [] }
+      if (!data.children) {
+        this.$set(data, 'children', [])
+      }
+      data.children.push(newChild)
     },
-    loader (node, resolve) {
-      setTimeout(() => {
-        if (node.data.label === '建邺区') {
-          resolve([{
-            label: '南湖街道',
-            children: []
-          }, {
-            label: '奥体',
-            children: []
-          }])
-        } else {
-          resolve([])
-        }
-      }, 3000)
+    remove (node, data) {
+      const parent = node.parent
+      const children = parent.data.children || parent.data
+      const index = children.findIndex(d => d.id === data.id)
+      children.splice(index, 1)
     },
-    changed (checked) {
-      this.checked = checked.map((c) => {
-        return c.label
-      }).join(', ')
+    renderContent (h, { node, data, store }) {
+      return (
+        <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+          <span>
+            <span>{node.label}</span>
+          </span>
+          <span>
+            <el-button style="font-size: 12px;" type="text" on-click={ () => this.append(data) }>Append</el-button>
+            <el-button style="font-size: 12px;" type="text" on-click={ () => this.remove(node, data) }>Delete</el-button>
+          </span>
+        </span>)
     }
   },
   data () {
     return {
-      options: {
-        showCheckbox: false,
-        halfCheck: false,
-        lazy: true,
-        load: this.loadingChild,
-        showSearch: false,
-        search: {
-          useInitial: true,
-          useEnglish: false,
-          customFilter: null
-        }
-      },
-      treeData: [],
-      data: [{
-        label: '江苏',
-        children: [{
-          label: '南京',
-          children: []
-        }]
-      }, {
-        label: '浙江',
-        children: [{
-          label: '杭州',
-          children: [{
-            label: '建邺区',
-            isChecked: true,
-            children: []
-          }]
-        }]
-      }],
-      checked: '',
       formInline: {
         user: '',
         region: ''
+      },
+      data4: [{
+        id: 1,
+        label: '一级 1',
+        children: [{
+          id: 4,
+          label: '二级 1-1',
+          children: [{
+            id: 9,
+            label: '三级 1-1-1'
+          }, {
+            id: 10,
+            label: '三级 1-1-2'
+          }, {
+            id: 101,
+            label: '三级 1-1-3'
+          }]
+        }]
+      }, {
+        id: 2,
+        label: '一级 2',
+        children: [{
+          id: 5,
+          label: '二级 2-1'
+        }, {
+          id: 6,
+          label: '二级 2-2'
+        }, {
+          id: 61,
+          label: '二级 2-3'
+        }]
+      }, {
+        id: 3,
+        label: '一级 3',
+        children: [{
+          id: 7,
+          label: '二级 3-1'
+        }, {
+          id: 8,
+          label: '二级 3-2'
+        }]
+      }],
+      defaultProps: {
+        children: 'children',
+        label: 'label'
       }
     }
   },
