@@ -9,6 +9,19 @@
       :expand-on-click-node="false"
       :render-content="renderContent">
     </el-tree>
+    <p class="lead pt-4">编辑菜单</p>
+    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+      <el-form-item label="标题">
+        <el-input v-model="formInline.user" placeholder="text"></el-input>
+      </el-form-item>
+      <el-form-item label="链接">
+        <el-input v-model="formInline.region" placeholder="link"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary">保存</el-button>
+        <el-button type="text">清空</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
@@ -17,7 +30,7 @@ let id = 1000
 export default {
   layout: 'admin',
   head: {
-    title: '标题',
+    title: '导航菜单',
     meta: [
       { hid: 'description', name: 'description', content: 'Home page description' }
     ],
@@ -29,11 +42,18 @@ export default {
   },
   methods: {
     append (data) {
-      const newChild = { id: id++, label: 'testtest', children: [] }
+      const newChild = { id: id++, label: '子项', link: '#', children: [] }
       if (!data.children) {
         this.$set(data, 'children', [])
       }
       data.children.push(newChild)
+    },
+    edit (node, data) {
+      console.log(node, data)
+      const parent = node.parent
+      const children = parent.data.children || parent.data
+      const index = children.findIndex(d => d.id === data.id)
+      children.splice(index, 1)
     },
     remove (node, data) {
       const parent = node.parent
@@ -45,11 +65,12 @@ export default {
       return (
         <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
-            <span>{node.label}</span>
+            <span><a href="#">{node.label}</a></span>
           </span>
           <span>
-            <el-button style="font-size: 12px;" type="text" on-click={ () => this.append(data) }>Append</el-button>
-            <el-button style="font-size: 12px;" type="text" on-click={ () => this.remove(node, data) }>Delete</el-button>
+            <el-button style="font-size: 12px;" type="text" on-click={ () => this.append(data) }>添加子项</el-button>
+            <el-button style="font-size: 12px;" type="text" on-click={ () => this.edit(node, data) }>编辑</el-button>
+            <el-button style="font-size: 12px;" type="text" on-click={ () => this.remove(node, data) }>删除</el-button>
           </span>
         </span>)
     }
@@ -63,42 +84,19 @@ export default {
       data4: [{
         id: 1,
         label: '一级 1',
+        link: '#',
         children: [{
           id: 4,
           label: '二级 1-1',
-          children: [{
-            id: 9,
-            label: '三级 1-1-1'
-          }, {
-            id: 10,
-            label: '三级 1-1-2'
-          }, {
-            id: 101,
-            label: '三级 1-1-3'
-          }]
+          link: '#'
         }]
       }, {
         id: 2,
         label: '一级 2',
         children: [{
           id: 5,
-          label: '二级 2-1'
-        }, {
-          id: 6,
-          label: '二级 2-2'
-        }, {
-          id: 61,
-          label: '二级 2-3'
-        }]
-      }, {
-        id: 3,
-        label: '一级 3',
-        children: [{
-          id: 7,
-          label: '二级 3-1'
-        }, {
-          id: 8,
-          label: '二级 3-2'
+          label: '二级 2-1',
+          link: '#'
         }]
       }],
       defaultProps: {
