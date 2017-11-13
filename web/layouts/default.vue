@@ -9,7 +9,7 @@
       <el-menu class="sc-topmenu" :default-active="activeIndex1" mode="horizontal" @select="handleSelect" background-color="#006696" text-color="#f3f3f3" active-text-color="#fff">
         <el-menu-item index="1"><a href="/">首页</a></el-menu-item>
         <el-submenu index="2">
-          <template slot="title"><a href="/">概况</a></template>
+          <template slot="title"><a href="/list">概况</a></template>
           <el-menu-item index="2-1">选项选项选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
           <el-menu-item index="2-3"><a href="/">选项3</a></el-menu-item>
@@ -25,16 +25,18 @@
         <el-menu-item index="6"><a href="#" target="_blank">招贤纳士</a></el-menu-item>
         <el-menu-item index="7"><a href="#" target="_blank">联系方式</a></el-menu-item>
       </el-menu>
-      <!-- 灰色背景分隔条 -->
+    </div>
+    <!-- 灰色背景分隔条 -->
+    <div class="sc-container">
       <el-row>
-        <el-col :span="24" style="background-color:#f2f2f2;height:20px;"></el-col>
+        <el-col :span="24" style="height:15px;"></el-col>
       </el-row>
     </div>
     <nuxt/>
     <!-- 灰色背景分隔条 -->
     <div class="sc-container">
       <el-row>
-        <el-col :span="24" style="background-color:#f2f2f2;height:20px;"></el-col>
+        <el-col :span="24" style="background-color:#e6e6e6;height:15px;"></el-col>
       </el-row>
     </div>
     <el-footer>
@@ -77,7 +79,8 @@
 <style>
 body{
   margin: 0;
-  background: url(~assets/body-bg.png);
+  background-color:#f5f5f5 !important;
+  /* background: url(~assets/body-bg.png); */
 }
 a {
   text-decoration: none;

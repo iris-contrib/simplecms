@@ -40,9 +40,9 @@
             <p style="display:flex">
               <span style="flex:1;font-size:18px;font-width:bold;">
                 <i class="el-icon-arrow-right"></i>&nbsp;
-                <a href="#">{{'用脑启发的智能列表内容 ' + o }}</a>
+                <a href="/article">{{'用脑启发的智能列表内容 ' + o }}</a>
               </span>
-              <span class="small text-muted">2017/09/14</span>
+              <span class="text-muted">2017/09/14</span>
             </p>
             <p style="padding:0 100px 30px 25px;text-align:justify;">为促进我国消化内镜事业的进一步发展，由中华医学会、中华医学会消化内镜学分会主办，浙江省医学会、浙江大学医学院附属第一医院和杭州市第一人民医院承办的2017中国消化内镜学术大会于2017年9月1日~3日在浙江省杭州市国际会议中心召开。</p>
           </li>

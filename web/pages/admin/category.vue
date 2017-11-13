@@ -1,27 +1,9 @@
 <template>
   <div>
+    <!-- 分类树 -->
     <div>
-      <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;效果预览</p>
-      <p class="small text-muted pl-4">第一个菜单“首页”是不可编辑的</p>
-    </div>
-    <div class="sc-container" style="width:970px;z-index:100;margin:0 auto;">
-      <el-menu class="sc-topmenu" :default-active="activeIndex1" mode="horizontal" @select="handleSelect" background-color="#006696" text-color="#f3f3f3" active-text-color="#fff">
-        <el-menu-item index="1"><a href="/">首页</a></el-menu-item>
-        <template v-for="item in data4[0].children">
-          <el-submenu v-if="item.children" :index="item.id" v-bind:key="item.id">
-            <template slot="title"><a :href="item.link">{{item.label}}</a></template>
-            <el-menu-item :index="subitem.id" v-for="subitem in item.children" v-bind:key="subitem.id">
-              <a :href="subitem.link">{{subitem.label}}</a>
-            </el-menu-item>
-          </el-submenu>
-          <el-menu-item v-else :index="item.id"><a :href="item.link">{{item.label}}</a></el-menu-item>
-        </template>
-      </el-menu>
-    </div>
-    <!-- 菜单树 -->
-    <div class="pt-5">
-      <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;菜单树</p>
-      <p class="small text-muted pl-4">单击菜单名称编辑</p>
+      <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;分类树</p>
+      <p class="small text-muted pl-4">单击名称编辑</p>
     </div>
     <el-tree
       :data="data4"
@@ -34,23 +16,19 @@
     </el-tree>
     <!-- 单项编辑 -->
     <template v-if="currentEditingNode.id">
-      <p class="lead pt-3"><i class="el-icon-arrow-down"></i>&nbsp;单项编辑</p>
+      <div class="pt-3">
+        <p class="lead mb-0"><i class="el-icon-arrow-down"></i>&nbsp;单项编辑</p>
+        <p class="small text-muted pl-4">保存后才会生效</p>
+      </div>
       <el-form :inline="true" :model="currentEditingNode" class="demo-form-inline">
-        <el-form-item class="mb-0" label="标题">
-          <el-input v-model.lazy="currentEditingNode.label" placeholder="text"></el-input>
-        </el-form-item>
-        <el-form-item class="mb-0" label="链接">
-          <el-input v-model.lazy="currentEditingNode.link" placeholder="link"></el-input>
+        <el-form-item class="mb-0" label="分类">
+          <el-input v-model.lazy="currentEditingCatetory" placeholder="text"></el-input>
         </el-form-item>
         <el-form-item class="mb-0">
-          <el-button @click="editNodeCancel" type="text">取消</el-button>
+          <el-button @click="editNodeSave" type="text">保存</el-button>
         </el-form-item>
       </el-form>
     </template>
-    <div class="pt-5">
-      <el-button type="primary">发布</el-button>
-      <p class="small text-muted pt-2">发布之后前台才会更新</p>
-    </div>
   </div>
 </template>
 
@@ -77,9 +55,9 @@ export default {
       const rawdata = children[index]
       return rawdata
     },
-    editNodeCancel () {
+    editNodeSave () {
+      this.currentEditingNode.label = this.currentEditingCatetory
       this.currentEditingNode = {}
-      // console.log(this.currentEditingNode)
     },
     append (data) {
       const newChild = { id: id++, label: '子项', link: '#' }
@@ -95,6 +73,7 @@ export default {
         return
       }
       this.currentEditingNode = rawdata
+      this.currentEditingCatetory = rawdata.label
     },
     remove (node, data) {
       const parent = node.parent
@@ -122,6 +101,7 @@ export default {
         region: ''
       },
       currentEditingNode: {},
+      currentEditingCatetory: '',
       data4: [{
         id: 1,
         label: '顶级菜单（用于添加子项）',

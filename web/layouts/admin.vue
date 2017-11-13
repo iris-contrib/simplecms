@@ -1,8 +1,8 @@
 <template>
   <div>
     <header>
-      <nav style="height:60px;" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" style="color: rgba(255,255,255,.2);" href="#">后台管理系统</a>
+      <nav style="height:60px;z-index:1600;" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" style="color: rgba(255,255,255,.8);" href="#">后台管理</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,7 +17,7 @@
               <a class="nav-link" target="_blank" href="/">前台</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">退出</a>
+              <a class="nav-link" href="#">退出登陆</a>
             </li>
           </ul>
         </div>
@@ -26,16 +26,16 @@
     <div class="container-fluid">
       <div class="row">
         <!-- 左菜单栏 -->
-        <div class="col-sm-2 bg-light sidebar">
+        <div class="col-sm-2 bg-light sidebar sc-sidemenu">
           <el-menu default-active="1-1" style="height:100%;padding-top:15px;" :default-openeds="sideMenuDefaultOpenedArray" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
             <el-submenu index="1">
               <template slot="title">
                 <i class="el-icon-tickets"></i>
                 <span>内容与分类</span>
               </template>
-              <el-menu-item index="1-1">分类管理</el-menu-item>
-              <el-menu-item index="1-2">内容列表</el-menu-item>
-              <el-menu-item index="1-3">新增内容</el-menu-item>
+              <el-menu-item index="1-1"><a href="/admin/category">分类管理</a></el-menu-item>
+              <el-menu-item index="1-2"><a href="/admin/content-list">内容列表</a></el-menu-item>
+              <el-menu-item index="1-3"><a href="/admin/content-new">新增内容</a></el-menu-item>
             </el-submenu>
             <el-menu-item index="2">
               <i class="el-icon-menu"></i>
@@ -75,6 +75,13 @@
     padding-top: 60px;
     font-weight: 100;
   }
+  .sc-sidemenu a {
+    text-decoration: none;
+    color:#e0e0e0;
+  }
+  .sc-sidemenu a:hover{
+    color: #fff;
+  }
   .sidebar {
     position: fixed;
     top: 60px;
@@ -84,6 +91,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     border-right: 1px solid #eee;
+    color:#e0e0e0;
   }
 </style>
 

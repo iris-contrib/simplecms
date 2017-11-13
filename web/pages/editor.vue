@@ -1,41 +1,16 @@
 <template>
   <el-container style='max-width:970pxmargin: 0 auto'>
-    <el-header>Header</el-header>
-    <el-container>
-      <el-aside width='300px'>Aside</el-aside>
-      <el-main>
+    <el-main>
+      <div>
+        <hr/>
         <div v-html='html' class='markdown-body'>
         </div>
-
-        <el-select v-model='value10' multiple filterable allow-create placeholder='请选择文章标签'>
-          <el-option v-for='item in options5' :key='item.value' :label='item.label' :value='item.value'>
-          </el-option>
-        </el-select>
-
-        <p>book:{{ countn }}</p>
-        <button @click='clickCounterBtn'>{{ countn }}</button>
-
-        <p>project title:{{ $store.state.project }}</p>
-        <button @click='clickTitleBtn'>settitlebtn</button>
-
-        <br/>
-        <br/>
-        <button v-on:click='countery += 1'>增加 1</button>
-        <p>这个按钮被点击了 {{ countery }} 次。</p>
-
-        <p>
-          <button @click='getMockUser'>getMockUser</button>
-        </p>
-
-        <mavon-editor v-model='intro' @change='editorChange' />
-
-      </el-main>
-      </el-container>
-
-    <el-footer>Footer</el-footer>
+        <hr/>
+      </div>
+      <mavon-editor v-model='intro' :toolbars="toolbars" code_style="code-github" default_open="edit" :subfield="false" @change='editorChange' />
+    </el-main>
   </el-container>
 </template>
-
 
 <script>
 import axios from 'axios'
@@ -79,13 +54,13 @@ export default {
   async asyncData (context) {
     // console.log('|||===asyncData===||||')
     // 由于asyncData方法是在组件 初始化 前被调用的，所以在方法内是没有办法通过 this 来引用组件的实例对象
-    let { data } = await axios.get(
-      'https://api.douban.com/v2/book/isbn/:9787111128069'
-    )
-    console.log('========book=========', data.id)
+    // let { data } = await axios.get(
+    //   'https://api.douban.com/v2/book/isbn/:9787111128069'
+    // )
+    // console.log('========book=========', data.id)
 
     return {
-      countery: data.id,
+      countery: '',
       project: 'nuxt123',
       countn: 100,
       title: '==',
@@ -150,13 +125,13 @@ export default {
     // console.log('|||===fetch===||||')
     // 在多个页面同时可能用到的数据，不知道在哪个页面先被加载过
     // 可以存在store中，使用前先做个判断，如果为null，则加载；否则直接取用
-    return axios
-      .get('https://api.douban.com/v2/book/isbn/:9787111128069')
-      .then(res => {
-        console.log('---------------------=========', res.data.id)
-        // 向store传值
-        store.commit('setBook', res.data.id)
-      })
+    // return axios
+    //   .get('https://api.douban.com/v2/book/isbn/:9787111128069')
+    //   .then(res => {
+    //     console.log('---------------------=========', res.data.id)
+    //     // 向store传值
+    //     store.commit('setBook', res.data.id)
+    //   })
   },
   methods: {
     getMockUser () {
@@ -176,12 +151,13 @@ export default {
     // editorChange value 可以获得markdown 代码，render 获得 html 代码
     editorChange (value, render) {
       this.html = md.render(value)
-      console.log('value: ' + value)
-      console.log('render: ' + render)
+      console.log('html: ', this.html)
     }
   },
   data () {
-    return {}
+    return {
+      html: '---'
+    }
   },
   components: {}
 }

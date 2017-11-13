@@ -14,10 +14,10 @@
         </el-carousel>
         <!-- 灰色背景分隔条 -->
         <el-row>
-          <el-col :span="24" style="background-color:#f2f2f2;height:20px;"></el-col>
+          <el-col :span="24" style="background-color:#f5f5f5;height:15px;"></el-col>
         </el-row>
         <!-- 三栏内容 -->
-        <el-row :gutter="1" style="background-color:#eaeaea;">
+        <el-row :gutter="1" style="background-color:#f7f7f7;">
           <el-col :span="8">
             <el-card :body-style="'padding:10px 15px 20px;'">
               <div slot="header" class="clearfix">
@@ -72,7 +72,7 @@
         </el-row>
         <!-- 灰色背景分隔条 -->
         <el-row>
-          <el-col :span="24" style="background-color:#f2f2f2;height:20px;"></el-col>
+          <el-col :span="24" style="background-color:#f5f5f5;height:15px;"></el-col>
         </el-row>
         <!-- 四栏内容 -->
         <el-row :gutter="1" style="background-color:#eaeaea;">
