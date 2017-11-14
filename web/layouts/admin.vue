@@ -1,15 +1,15 @@
 <template>
   <div>
     <header>
-      <nav style="height:60px;z-index:1600;" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" style="color: rgba(255,255,255,.8);" href="#">后台管理</a>
+      <nav style="height:60px;z-index:2000;" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" style="color: rgba(255,255,255,.8);" href="#">SC后台管理系统</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/admin/welcome">欢迎您</a>
+              <a class="nav-link" href="/admin/welcome">欢迎您，管理员</a>
             </li>
           </ul>
           <ul class="navbar-nav">
@@ -27,34 +27,39 @@
       <div class="row">
         <!-- 左菜单栏 -->
         <div class="col-sm-2 bg-light sidebar sc-sidemenu">
-          <el-menu default-active="1-1" style="height:100%;padding-top:15px;" :default-openeds="sideMenuDefaultOpenedArray" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-            <el-submenu index="1">
+          <el-menu style="height:100%;padding-top:15px;" 
+            :default-openeds="['n1', 'n3']"
+            :default-active="'n2'"
+            background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+            <el-submenu index="n1">
               <template slot="title">
                 <i class="el-icon-tickets"></i>
                 <span>内容与分类</span>
               </template>
-              <el-menu-item index="1-1"><a href="/admin/category">分类管理</a></el-menu-item>
-              <el-menu-item index="1-2"><a href="/admin/content-list">内容列表</a></el-menu-item>
-              <el-menu-item index="1-3"><a href="/admin/content-new">新增内容</a></el-menu-item>
+              <router-link to="/admin/category"><el-menu-item index="n1-1"><i class="el-icon-arrow-right"></i>分类管理</el-menu-item></router-link>
+              <router-link to="/admin/content-list"><el-menu-item index="n12"><i class="el-icon-arrow-right"></i>内容列表</el-menu-item></router-link>
+              <router-link to="/admin/content-new"><el-menu-item index="n13"><i class="el-icon-arrow-right"></i>新增内容</el-menu-item></router-link>
             </el-submenu>
-            <el-menu-item index="2">
-              <i class="el-icon-menu"></i>
-              <span slot="title"><a href="/admin/menu">导航菜单</a></span>
-            </el-menu-item>
-            <el-submenu index="3">
+            <router-link to="/admin/menu">
+              <el-menu-item index="n2">
+                <i class="el-icon-menu"></i>
+                <span slot="title">导航菜单</span>
+              </el-menu-item>
+            </router-link>
+            <el-submenu index="n3">
               <template slot="title">
                 <i class="el-icon-star-on"></i>
                 <span>首页设置</span>
               </template>
-              <el-menu-item index="3-1">轮播图</el-menu-item>
-              <el-menu-item index="3-2">三栏内容</el-menu-item>
-              <el-menu-item index="3-3">四栏内容</el-menu-item>
+              <router-link to="/admin/index-carousel"><el-menu-item index="n31"><i class="el-icon-arrow-right"></i>轮播图</el-menu-item></router-link>
+              <router-link to="/admin/index-3column"><el-menu-item index="n32"><i class="el-icon-arrow-right"></i>三栏内容</el-menu-item></router-link>
+              <router-link to="/admin/index-4column"><el-menu-item index="n33"><i class="el-icon-arrow-right"></i>四栏内容</el-menu-item></router-link>
             </el-submenu>
-            <el-menu-item index="4">
+            <el-menu-item index="n4">
               <i class="el-icon-date"></i>
               <span slot="title">管理员</span>
             </el-menu-item>
-            <el-menu-item index="5">
+            <el-menu-item index="n5">
               <i class="el-icon-setting"></i>
               <span slot="title">站点设置</span>
             </el-menu-item>
@@ -75,12 +80,20 @@
     padding-top: 60px;
     font-weight: 100;
   }
+  /* 所有表单的上下间隔都太大了 */
+  .el-form-item {
+    margin-bottom: 6px;
+  }
+  .el-button{
+    font-weight: 100;
+  }
   .sc-sidemenu a {
     text-decoration: none;
-    color:#e0e0e0;
+    /* 解决a标签影响sizeMenu样式的问题，默认的a标签蓝色样式会影响菜单栏的选中效果 */
+    color: inherit;
   }
-  .sc-sidemenu a:hover{
-    color: #fff;
+  .sc-sidemenu a:hover, .sc-sidemenu a:active{
+    color: inherit;
   }
   .sidebar {
     position: fixed;
@@ -98,9 +111,7 @@
 <script>
 export default {
   data () {
-    return {
-      sideMenuDefaultOpenedArray: []
-    }
+    return {}
   },
   head: {
     title: '院校首页',
@@ -112,6 +123,7 @@ export default {
     ]
   },
   components: {},
-  methods: {}
+  methods: {
+  }
 }
 </script>

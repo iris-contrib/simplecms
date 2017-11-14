@@ -1,8 +1,8 @@
 <template>
   <el-container>
     <el-main>
-      <form class="form-signin">
-        <h2 class="form-signin-heading">登录面板</h2>
+      <form class="form-signin pt-5">
+        <h2 class="form-signin-heading">SC后台管理系统</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="用户名" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Password</label>
@@ -12,7 +12,10 @@
             <input type="checkbox" checked value="remember-me"> 记住状态
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <div class="text-center">
+          <el-button class="btn btn-block" type="primary">登录</el-button><br/>
+          <el-button class="btn btn-block" type="text">取消</el-button>
+        </div>
       </form>
     </el-main>
   </el-container>
@@ -55,7 +58,7 @@ body{
   min-height: 700px;
 }
 .form-signin{
-  max-width: 330px;
+  max-width: 380px;
   padding: 30px;
   margin: 0 auto;
 }
@@ -71,7 +74,7 @@ body{
     position: relative;
     box-sizing: border-box;
     height: auto;
-    padding: 10px;
+    padding: 8px 10px 8px;
     font-size: 16px;
 }
 .form-signin input[type="password"] {

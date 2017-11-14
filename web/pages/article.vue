@@ -1,6 +1,6 @@
 <template>
     <el-container class="sc-main">
-      <el-aside style="max-width:150px;">
+      <el-aside style="max-width:180px;">
         <el-menu default-active="3" class="sc-sidemenu" @open="handleOpen" @close="handleClose" :default-openeds="sideMenuDefaultOpenedArray">
           <el-submenu index="1">
             <template slot="title">
@@ -56,7 +56,7 @@ export default {
   data () {
     return {
       currentPage1: 5,
-      sideMenuDefaultOpenedArray: []
+      sideMenuDefaultOpenedArray: ['1', '3']
     }
   },
   head: {
@@ -98,13 +98,21 @@ export default {
   line-height: 1.8em;
 }
 .sc-main{
-  width:970px;margin: 0px auto;
+  width:1000px;margin: 0px auto;
 }
 .sc-sidemenu{
-  height:100%;width:149px;
+  height:100%;width:179px;
 }
 .sc-sidemenu .el-submenu .el-menu-item {
-  min-width: 149px !important;
+  min-width: 179px !important;
+}
+.sc-sidemenu a {
+  text-decoration: none;
+  /* 解决a标签影响sizeMenu样式的问题，默认的a标签蓝色样式会影响菜单栏的选中效果 */
+  color: inherit;
+}
+.sc-sidemenu a:hover, .sc-sidemenu a:active{
+  color: inherit;
 }
 .el-aside {
   background-color: #fff;

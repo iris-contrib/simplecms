@@ -5,7 +5,7 @@
       <div class="sc-previewbar"></div>
     </el-header>
     <!-- 顶部导航 -->
-    <div class="sc-container position-sticky sticky-top" style="width:970px;z-index:100;">
+    <div class="sc-container position-sticky sticky-top" style="width:1000px;z-index:2000;">
       <el-menu class="sc-topmenu" :default-active="activeIndex1" mode="horizontal" @select="handleSelect" background-color="#006696" text-color="#f3f3f3" active-text-color="#fff">
         <el-menu-item index="1"><a href="/">首页</a></el-menu-item>
         <el-submenu index="2">
@@ -107,7 +107,7 @@ a:hover{
   background-repeat: no-repeat;
 }
 .sc-container{
-  width:970px;
+  width:1000px;
   margin: 0 auto
 }
 .sc-topmenu{

@@ -220,7 +220,7 @@ export default {
   border-radius: 0;
 }
 .sc-main{
-  width:970px;margin: 0px auto;
+  width:1000px;margin: 0px auto;
   overflow: hidden;
 }
 .sc-sidemenu{

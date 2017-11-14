@@ -1,13 +1,15 @@
 <template>
     <el-container class="sc-main">
-      <el-aside class="sticky-top" style="max-width:150px;">
-        <el-menu default-active="3" class="sc-sidemenu" @open="handleOpen" @close="handleClose" :default-openeds="sideMenuDefaultOpenedArray">
+      <el-aside class="sticky-top" style="max-width:180px;">
+        <el-menu default-active="1-1" class="sc-sidemenu" 
+          @open="handleOpen" @close="handleClose" 
+          :default-openeds="sideMenuDefaultOpenedArray">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>概况</span>
             </template>
-            <el-menu-item index="1-1">研究院简介</el-menu-item>
+            <el-menu-item index="1-1"><a href="#">研究院简介</a></el-menu-item>
             <el-menu-item index="1-2">选项3</el-menu-item>
             <el-menu-item index="1-3">选项3</el-menu-item>
             <el-menu-item index="1-4-1">选项1</el-menu-item>
@@ -69,7 +71,7 @@ export default {
   data () {
     return {
       currentPage1: 5,
-      sideMenuDefaultOpenedArray: []
+      sideMenuDefaultOpenedArray: ['1', '2']
     }
   },
   head: {
@@ -101,14 +103,22 @@ export default {
 
 <style>
 .sc-main{
-  width:970px;
+  width:1000px;
   margin: 0px auto;
 }
 .sc-sidemenu{
-  height:100%;width:149px;
+  height:100%;width:179px;
 }
 .sc-sidemenu .el-submenu .el-menu-item {
-  min-width: 149px !important;
+  min-width: 179px !important;
+}
+.sc-sidemenu a {
+  text-decoration: none;
+  /* 解决a标签影响sizeMenu样式的问题，默认的a标签蓝色样式会影响菜单栏的选中效果 */
+  color: inherit;
+}
+.sc-sidemenu a:hover, .sc-sidemenu a:active{
+  color: inherit;
 }
 .el-aside {
   background-color: #fff;

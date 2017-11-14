@@ -48,7 +48,9 @@
       </el-form>
     </template>
     <div class="pt-5">
-      <el-button type="primary">发布</el-button>
+      <el-badge is-dot class="item">
+        <el-button icon="el-icon-upload2" type="primary">发布</el-button>
+      </el-badge>
       <p class="small text-muted pt-2">发布之后前台才会更新</p>
     </div>
   </div>
@@ -109,8 +111,8 @@ export default {
             <span><a href="javascript:;" on-click={ () => this.edit(node, data) }>{node.label}</a></span>
           </span>
           <span>
-            <el-button style="font-size: 12px;" type="text" on-click={ () => this.append(data) }>添加子项</el-button>
-            <el-button style="font-size: 12px;" type="text" on-click={ () => this.remove(node, data) }>删除</el-button>
+            <el-button style="font-size: 12px;color:#666;" type="text" on-click={ () => this.append(data) }>添加子项</el-button>
+            <el-button style="font-size: 12px;color:red;" type="text" on-click={ () => this.remove(node, data) }>删除</el-button>
           </span>
         </span>)
     }

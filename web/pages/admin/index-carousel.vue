@@ -1,30 +1,14 @@
 <template>
   <div class="pr-4">
     <div>
-      <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;内容列表</p>
-      <p class="small text-muted pl-4">无操作说明</p>
+      <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;轮播图列表</p>
+      <p class="small text-muted pl-4">选择后编辑</p>
     </div>
     <div class="pl-4">
-      <el-form ref="form">
-        <el-form-item label="选择分类" class="mb-3">
-          <el-select v-model="value8" filterable placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-        </el-form-item>
-      </el-form>
-      <!-- 列表 -->
       <el-table
         :data="tableData"
         stripe
         style="width: 100%">
-        <el-table-column 
-          type="selection"
-          width="50">
         </el-table-column>
         <el-table-column
           label="日期"
@@ -52,14 +36,30 @@
         </el-table-column>
       </el-table>
       <div class="pt-3">
-        <el-button type="danger">隐藏</el-button><span class="text-muted">（批量操作）</span>
+        <el-button type="success">添加新项</el-button>
       </div>
-      <div class="p-3" style="text-align:center">
-        <el-pagination
-          layout="total, prev, pager, next"
-          :total="50" style="background:transparent">
-        </el-pagination>
-      </div>
+    </div>
+    <div class="pt-4">
+      <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;编辑单项</p>
+      <p class="small text-muted pl-4">无操作说明</p>
+    </div>
+    <div class="pl-4">
+      <el-form style="max-width:540px;" ref="form" :model="form" label-width="40px">
+        <el-form-item label="标题">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item label="链接">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item label="图片">
+          <!-- 先引入holder文件才可以使用，src的地址与实际的js文件地址没有关系 -->
+          <img data-src="holder.js/500x200?text=1000x400" class="img-thumbnail" data-holder-rendered="true">
+        </el-form-item>
+        <el-form-item class="pt-2">
+          <el-button type="primary">保存</el-button>
+          <el-button type="text">取消</el-button>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
@@ -74,15 +74,12 @@ export default {
     ],
     link: [
       { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css', integrity: 'sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb', crossorigin: 'anonymous' }
+    ],
+    script: [
+      { src: '/static/js/holder-v2.9.0.min.js', type: 'text/javascript' }
     ]
   },
   methods: {
-    handleEdit (index, row) {
-      console.log(index, row)
-    },
-    handleDelete (index, row) {
-      console.log(index, row)
-    }
   },
   data () {
     return {
@@ -103,23 +100,16 @@ export default {
         name: '王小虎',
         address: '上海市普陀区金沙江路 1516 弄'
       }],
-      options: [{
-        value: '选项1',
-        label: '黄金糕'
-      }, {
-        value: '选项2',
-        label: '双皮奶'
-      }, {
-        value: '选项3',
-        label: '蚵仔煎'
-      }, {
-        value: '选项4',
-        label: '龙须面'
-      }, {
-        value: '选项5',
-        label: '北京烤鸭'
-      }],
-      value8: '选项4',
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
       formInline: {
         user: '',
         region: ''
@@ -132,16 +122,5 @@ export default {
 </script>
 
 <style>
-.el-table label {
-    margin-bottom: 0 !important;
-}
-.el-pagination button, .el-pagination li {
-    background-color: transparent !important;
-}
-thead tr{
-  background-color: #d8d8d8 !important;
-  color: #717171;
-}
+
 </style>
-
-

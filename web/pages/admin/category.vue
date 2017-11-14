@@ -1,33 +1,37 @@
 <template>
-  <div>
+  <div class="pr-4">
     <!-- 分类树 -->
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;分类树</p>
       <p class="small text-muted pl-4">单击名称编辑</p>
     </div>
-    <el-tree
-      :data="data4"
-      :props="defaultProps"
-      :show-checkbox="false"
-      node-key="id"
-      default-expand-all
-      :expand-on-click-node="false"
-      :render-content="renderContent" class="p-2" style="width:auto;max-width:500px;">
-    </el-tree>
+    <div class="pl-4">
+      <el-tree
+        :data="data4"
+        :props="defaultProps"
+        :show-checkbox="false"
+        node-key="id"
+        default-expand-all
+        :expand-on-click-node="false"
+        :render-content="renderContent" class="p-2" style="width:auto;max-width:500px;">
+      </el-tree>
+    </div>
     <!-- 单项编辑 -->
     <template v-if="currentEditingNode.id">
       <div class="pt-3">
         <p class="lead mb-0"><i class="el-icon-arrow-down"></i>&nbsp;单项编辑</p>
         <p class="small text-muted pl-4">保存后才会生效</p>
       </div>
-      <el-form :inline="true" :model="currentEditingNode" class="demo-form-inline">
-        <el-form-item class="mb-0" label="分类">
-          <el-input v-model.lazy="currentEditingCatetory" placeholder="text"></el-input>
-        </el-form-item>
-        <el-form-item class="mb-0">
-          <el-button @click="editNodeSave" type="text">保存</el-button>
-        </el-form-item>
-      </el-form>
+      <div class="pl-4">
+        <el-form :inline="true" :model="currentEditingNode" class="demo-form-inline">
+          <el-form-item class="mb-0" label="分类">
+            <el-input v-model.lazy="currentEditingCatetory" placeholder="text"></el-input>
+          </el-form-item>
+          <el-form-item class="mb-0">
+            <el-button @click="editNodeSave" type="text">保存</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
     </template>
   </div>
 </template>
@@ -39,10 +43,16 @@ export default {
   head: {
     title: '导航菜单',
     meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Home page description' }
     ],
     link: [
+      { rel: 'favicon', href: '/static/favicon.ico' },
       { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css', integrity: 'sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb', crossorigin: 'anonymous' }
+    ],
+    script: [
+      // { src: '/static/js/holder-v2.9.0.min.js', type: 'text/javascript' }
     ]
   },
   mounted: function () {
@@ -128,20 +138,5 @@ export default {
 </script>
 
 <style>
-  .sc-topmenu{
-    justify-content: space-around;
-    display: flex;
-  }
-  .sc-topmenu a{
-    text-decoration: none;
-    color:#f3f3f3;
-  }
-  /* 此处是为了去除鼠标移动菜单项之上后的灰色背景 */
-  .sc-topmenu li:hover,.sc-topmenu div:hover{
-    background-color:#0177af !important;
-  }
-  /* 这是为了去掉顶部二级菜单的多余宽度 */
-  .sc-topmenu .el-submenu .el-menu-item{
-    min-width:180px !important;
-  }
+
 </style>
