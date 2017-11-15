@@ -27,11 +27,16 @@
           <template slot-scope="scope">
             <el-button
               size="mini"
+              type="text"
               @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
             <el-button
               size="mini"
-              type="danger"
-              @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
+              type="text"
+              @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            <el-button
+              size="mini"
+              type="text"
+              @click="handleDelete(scope.$index, scope.row)">禁用</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -40,20 +45,16 @@
       </div>
     </div>
     <div class="pt-4">
-      <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;编辑单项</p>
+      <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;编辑帐号</p>
       <p class="small text-muted pl-4">无操作说明</p>
     </div>
     <div class="pl-4">
-      <el-form style="max-width:1080px;" ref="form" :model="form" label-width="40px">
-        <el-form-item label="标题">
-          <el-input style="max-width:300px" v-model="form.name"></el-input>
+      <el-form style="max-width:300px;" ref="form" :model="form" label-width="60px">
+        <el-form-item label="用户名">
+          <el-input v-model="form.name"></el-input>
         </el-form-item>
-        <el-form-item label="链接">
-          <el-input  style="max-width:300px" v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="图片">
-          <!-- 先引入holder文件才可以使用，src的地址与实际的js文件地址没有关系 -->
-          <img src="~assets/500x200.svg" class="img-thumbnail">
+        <el-form-item label="密码">
+          <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item class="pt-2">
           <el-button type="primary">保存</el-button>

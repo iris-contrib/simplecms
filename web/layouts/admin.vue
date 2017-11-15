@@ -55,14 +55,18 @@
               <router-link to="/admin/index-3column"><el-menu-item index="n32"><i class="el-icon-arrow-right"></i>三栏内容</el-menu-item></router-link>
               <router-link to="/admin/index-4column"><el-menu-item index="n33"><i class="el-icon-arrow-right"></i>四栏内容</el-menu-item></router-link>
             </el-submenu>
-            <el-menu-item index="n4">
-              <i class="el-icon-date"></i>
-              <span slot="title">管理员</span>
-            </el-menu-item>
-            <el-menu-item index="n5">
-              <i class="el-icon-setting"></i>
-              <span slot="title">站点设置</span>
-            </el-menu-item>
+            <router-link to="/admin/administrator">
+              <el-menu-item index="n4">
+                <i class="el-icon-date"></i>
+                <span slot="title">管理员</span>
+              </el-menu-item>
+            </router-link>
+            <router-link to="/admin/settings">
+              <el-menu-item index="n5">
+                <i class="el-icon-setting"></i>
+                <span slot="title">站点设置</span>
+              </el-menu-item>
+            </router-link>
           </el-menu>
         </div>
         <!-- 右主区 -->
