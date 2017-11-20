@@ -22,7 +22,8 @@
     "mavon-editor": "^2.3.0",
     "mockjs": "^1.0.1-beta3",
     "nock": "^9.0.27",
-    "nuxt": "latest"
+    "nuxt": "latest",
+    "vue-holderjs": "^1.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -33,7 +34,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "vue-holderjs": "^1.0.2"
+    "eslint-plugin-standard": "^3.0.1"
   }
 }

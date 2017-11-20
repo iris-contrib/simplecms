@@ -105,16 +105,30 @@ export default {
       children.splice(index, 1)
     },
     renderContent (h, { node, data, store }) {
-      return (
-        <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
-          <span>
-            <span><a href="javascript:;" on-click={ () => this.edit(node, data) }>{node.label}</a></span>
-          </span>
-          <span>
-            <el-button style="font-size: 12px;color:#666;" type="text" on-click={ () => this.append(data) }>添加子项</el-button>
-            <el-button style="font-size: 12px;color:red;" type="text" on-click={ () => this.remove(node, data) }>删除</el-button>
-          </span>
-        </span>)
+      const rawdata = this.getRawdataOfNode(node, data)
+      if (rawdata.id === 1) {
+        return (
+          <span class="sc-tree-item">
+            <span>
+              <span>{node.label}</span>
+            </span>
+            <span>
+              <el-button size="mini" type="info" on-click={ () => this.append(data) }>添加子项</el-button>
+              <el-button size="mini" type="danger" on-click={ () => this.remove(node, data) }>移除</el-button>
+            </span>
+          </span>)
+      } else {
+        return (
+          <span class="sc-tree-item">
+            <span>
+              <span><a href="javascript:;" on-click={ () => this.edit(node, data) }>{node.label}</a></span>
+            </span>
+            <span>
+              <el-button size="mini" type="info" on-click={ () => this.append(data) }>添加子项</el-button>
+              <el-button size="mini" type="danger" on-click={ () => this.remove(node, data) }>移除</el-button>
+            </span>
+          </span>)
+      }
     }
   },
   data () {
@@ -126,7 +140,7 @@ export default {
       currentEditingNode: {},
       data4: [{
         id: 1,
-        label: '顶级菜单（用于添加子项）',
+        label: '顶级菜单',
         link: '/',
         children: [{
           id: 4,
@@ -139,6 +153,7 @@ export default {
         }]
       }],
       defaultProps: {
+        id: 'id',
         children: 'children',
         label: 'label',
         link: '#'
@@ -165,5 +180,16 @@ export default {
   /* 这是为了去掉顶部二级菜单的多余宽度 */
   .sc-topmenu .el-submenu .el-menu-item{
     min-width:180px !important;
+  }
+  /* 菜单树 */
+  .el-tree-node__content{
+    height:auto !important;
+    padding:5px 0 5px;
+  }
+  .el-tree-node__content a{
+    text-decoration: none !important;
+  }
+  .sc-tree-item{
+    flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;
   }
 </style>

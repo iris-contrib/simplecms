@@ -45,11 +45,11 @@
           <el-col :span="6" style="display:flex;align-items: center;min-height: 150px;">
             <img src="~assets/logo.png" style="padding-left:30px;" />
           </el-col>
-          <el-col :span="14" style="text-align:right;padding:30px;">
+          <el-col :span="14" style="text-align:right;padding:30px 30px 0;">
             <p style="flex:1"></p>
             <p><a href="http://www.cuc.edu.cn/">中传官网</a></p>
-            <p>学术指导：中国传媒大学脑科学与智能媒体研究院</p>
-            <p>地址：北京市朝阳区定福庄东街1号中国传媒大学 42号楼2层 邮编：100024</p>
+            <p>中国传媒大学脑科学与智能媒体研究院</p>
+            <p>地址：北京市朝阳区定福庄东街1号中国传媒大学 42号楼2层，邮编：100024</p>
           </el-col>
           <el-col :span="4" style="text-align:center;padding:25px">
             <img src="~assets/qrcode.png" style="width:80px;height:80px;" class="image">
@@ -136,7 +136,8 @@ a:hover{
   color: #589bd6;
 }
 .el-footer p {
-  margin: 5px 0 6px;
+  margin: 5px 0 5px;
+  line-height:18px;
 }
 body > .el-container {
   margin-bottom: 40px;

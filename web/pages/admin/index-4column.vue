@@ -25,13 +25,8 @@
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-            <el-button
-              size="mini"
-              type="danger"
-              @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
+            <el-button size="mini" type="info" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -52,7 +47,7 @@
           <el-input  style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="图片">
-          <img src="~assets/220x220.svg" class="img-thumbnail">
+          <img class="img-thumbnail" v-holder="{img:'220x220',theme: 'gray', text:'220x220'}">
         </el-form-item>
         <el-form-item label="标题">
           <el-input  style="max-width:300px" v-model="form.name"></el-input>
@@ -79,9 +74,6 @@ export default {
     ],
     link: [
       { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css', integrity: 'sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb', crossorigin: 'anonymous' }
-    ],
-    script: [
-      { src: '/static/js/holder-v2.9.0.min.js', type: 'text/javascript' }
     ]
   },
   methods: {

@@ -167,7 +167,7 @@ export default {
     }
   },
   head: {
-    title: '院校首页',
+    title: '院校内容管理系统',
     meta: [
       { hid: 'description', name: 'description', content: 'Home page description' }
     ],

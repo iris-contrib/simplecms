@@ -2,14 +2,14 @@
   <div>
     <header>
       <nav style="height:60px;z-index:2000;" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" style="color: rgba(255,255,255,.8);" href="#">SC后台管理系统</a>
+        <a class="navbar-brand" style="color: rgba(255,255,255,.8);" href="#">院校管理后台</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/admin/welcome">欢迎您，管理员</a>
+              <a class="nav-link" href="/admin/index">欢迎您，管理员</a>
             </li>
           </ul>
           <ul class="navbar-nav">
@@ -27,7 +27,7 @@
       <div class="row">
         <!-- 左菜单栏 -->
         <div class="col-sm-2 bg-light sidebar sc-sidemenu">
-          <el-menu style="height:100%;padding-top:15px;" 
+          <el-menu style="min-height:100%;padding:15px 0 100px;" 
             :default-openeds="['n1', 'n3']"
             :default-active="'n2'"
             background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
@@ -42,7 +42,7 @@
             </el-submenu>
             <router-link to="/admin/menu">
               <el-menu-item index="n2">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-plus"></i>
                 <span slot="title">导航菜单</span>
               </el-menu-item>
             </router-link>
@@ -57,14 +57,20 @@
             </el-submenu>
             <router-link to="/admin/administrator">
               <el-menu-item index="n4">
-                <i class="el-icon-date"></i>
+                <i class="el-icon-more"></i>
                 <span slot="title">管理员</span>
               </el-menu-item>
             </router-link>
-            <router-link to="/admin/settings">
+            <router-link to="/admin/site-settings">
               <el-menu-item index="n5">
                 <i class="el-icon-setting"></i>
                 <span slot="title">站点设置</span>
+              </el-menu-item>
+            </router-link>
+            <router-link to="/admin/bottom-settings">
+              <el-menu-item index="n6">
+                <i class="el-icon-download"></i>
+                <span slot="title">底部设置</span>
               </el-menu-item>
             </router-link>
           </el-menu>
@@ -82,12 +88,17 @@
   body{
     background-color: #e9eef3;
     padding-top: 60px;
-    font-weight: 100;
+    font-weight: 200;
   }
-  /* 所有表单的上下间隔都太大了 */
-  .el-form-item {
-    margin-bottom: 6px;
-  }
+  /* 去除上传图片示例的圆角 */
+  .img-thumbnail {
+    border-radius: 0;
+}
+  /* 所有表单的上下间隔都太大了
+  17/11，重新审视，还是默认有22个px间隔比较好 */
+  /* .el-form-item {
+    margin-bottom: 22px;
+  } */
   .el-button{
     font-weight: 100;
   }

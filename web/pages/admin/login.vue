@@ -2,7 +2,7 @@
   <el-container>
     <el-main>
       <form class="form-signin pt-5">
-        <h2 class="form-signin-heading">SC后台管理系统</h2>
+        <h2 class="form-signin-heading">院校内容管理后台</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="用户名" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Password</label>

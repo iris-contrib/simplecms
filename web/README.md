@@ -1,4 +1,4 @@
-# web
+# 
 
 > Nuxt.js project
 
