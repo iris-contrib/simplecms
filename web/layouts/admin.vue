@@ -28,7 +28,7 @@
         <!-- 左菜单栏 -->
         <div class="col-sm-2 bg-light sidebar sc-sidemenu">
           <el-menu style="min-height:100%;padding:15px 0 100px;" 
-            :default-openeds="['n1', 'n3']"
+            :default-openeds="['n1']"
             :default-active="'n2'"
             background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
             <el-submenu index="n1">
@@ -36,7 +36,7 @@
                 <i class="el-icon-tickets"></i>
                 <span>内容与分类</span>
               </template>
-              <router-link to="/admin/category"><el-menu-item index="n1-1"><i class="el-icon-arrow-right"></i>分类管理</el-menu-item></router-link>
+              <router-link to="/admin/category"><el-menu-item index="n11"><i class="el-icon-arrow-right"></i>分类管理</el-menu-item></router-link>
               <router-link to="/admin/content-list"><el-menu-item index="n12"><i class="el-icon-arrow-right"></i>内容列表</el-menu-item></router-link>
               <router-link to="/admin/content-new"><el-menu-item index="n13"><i class="el-icon-arrow-right"></i>新增内容</el-menu-item></router-link>
             </el-submenu>
@@ -49,30 +49,21 @@
             <el-submenu index="n3">
               <template slot="title">
                 <i class="el-icon-star-on"></i>
-                <span>首页设置</span>
+                <span>首页</span>
               </template>
               <router-link to="/admin/index-carousel"><el-menu-item index="n31"><i class="el-icon-arrow-right"></i>轮播图</el-menu-item></router-link>
               <router-link to="/admin/index-3column"><el-menu-item index="n32"><i class="el-icon-arrow-right"></i>三栏内容</el-menu-item></router-link>
               <router-link to="/admin/index-4column"><el-menu-item index="n33"><i class="el-icon-arrow-right"></i>四栏内容</el-menu-item></router-link>
             </el-submenu>
-            <router-link to="/admin/administrator">
-              <el-menu-item index="n4">
-                <i class="el-icon-more"></i>
-                <span slot="title">管理员</span>
-              </el-menu-item>
-            </router-link>
-            <router-link to="/admin/site-settings">
-              <el-menu-item index="n5">
+            <el-submenu index="n4">
+              <template slot="title">
                 <i class="el-icon-setting"></i>
-                <span slot="title">站点设置</span>
-              </el-menu-item>
-            </router-link>
-            <router-link to="/admin/bottom-settings">
-              <el-menu-item index="n6">
-                <i class="el-icon-download"></i>
-                <span slot="title">底部设置</span>
-              </el-menu-item>
-            </router-link>
+                <span>设置</span>
+              </template>
+              <router-link to="/admin/site-settings"><el-menu-item index="n41"><i class="el-icon-arrow-right"></i>站点设置</el-menu-item></router-link>
+              <router-link to="/admin/bottom-settings"><el-menu-item index="n42"><i class="el-icon-arrow-right"></i>底部设置</el-menu-item></router-link>
+              <router-link to="/admin/administrator"><el-menu-item index="n43"><i class="el-icon-arrow-right"></i>管理员</el-menu-item></router-link>
+            </el-submenu>
           </el-menu>
         </div>
         <!-- 右主区 -->

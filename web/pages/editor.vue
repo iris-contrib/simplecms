@@ -2,6 +2,7 @@
   <el-container style='max-width:970pxmargin: 0 auto'>
     <el-main>
       <div>
+        <button @click="$store.commit('increment',10)">{{ $store.state.counter }}</button>
         <hr/>
         <div v-html='html' class='markdown-body'>
         </div>
@@ -46,6 +47,7 @@ articleId
 //   })
 
 export default {
+  layout: 'empty',
   // asyncData会同步为客户端的data，同时在浏览器渲染前设置
   // 可以完全代替vue data
   // 使用async与await关键字，在服务器端拉取接口，相当于服务器端iris在渲染view之前从db中拉取数据
