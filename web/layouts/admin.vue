@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/admin/index">欢迎您，管理员</a>
+              <a class="nav-link" href="/admin/">欢迎您，管理员</a>
             </li>
           </ul>
           <ul class="navbar-nav">
@@ -25,11 +25,10 @@
     </header>
     <div class="container-fluid">
       <div class="row">
-        <!-- 左菜单栏 -->
-        <div class="col-sm-2 bg-light sidebar sc-sidemenu">
+        <!-- 左菜单栏，有竖向滚动条 -->
+        <div class="col-sm-2 bg-light sidebar sc-sidemenu" onscroll="event.preventDefault()">
           <el-menu style="min-height:100%;padding:15px 0 100px;" 
-            :default-openeds="['n1']"
-            :default-active="'n2'"
+            :default-openeds="['n1']" :accordion="true"
             background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
             <el-submenu index="n1">
               <template slot="title">
@@ -42,32 +41,37 @@
             </el-submenu>
             <router-link to="/admin/menu">
               <el-menu-item index="n2">
-                <i class="el-icon-plus"></i>
+                <i class="el-icon-menu"></i>
                 <span slot="title">导航菜单</span>
               </el-menu-item>
             </router-link>
             <el-submenu index="n3">
               <template slot="title">
                 <i class="el-icon-star-on"></i>
-                <span>首页</span>
+                <span>首页内容</span>
               </template>
               <router-link to="/admin/index-carousel"><el-menu-item index="n31"><i class="el-icon-arrow-right"></i>轮播图</el-menu-item></router-link>
               <router-link to="/admin/index-3column"><el-menu-item index="n32"><i class="el-icon-arrow-right"></i>三栏内容</el-menu-item></router-link>
               <router-link to="/admin/index-4column"><el-menu-item index="n33"><i class="el-icon-arrow-right"></i>四栏内容</el-menu-item></router-link>
             </el-submenu>
-            <el-submenu index="n4">
+            <router-link to="/admin/administrator">
+              <el-menu-item index="n4">
+                <i class="el-icon-news"></i>
+                <span slot="title">管理员</span>
+              </el-menu-item>
+            </router-link>
+            <el-submenu index="n5">
               <template slot="title">
                 <i class="el-icon-setting"></i>
-                <span>设置</span>
+                <span>站点设置</span>
               </template>
-              <router-link to="/admin/site-settings"><el-menu-item index="n41"><i class="el-icon-arrow-right"></i>站点设置</el-menu-item></router-link>
-              <router-link to="/admin/bottom-settings"><el-menu-item index="n42"><i class="el-icon-arrow-right"></i>底部设置</el-menu-item></router-link>
-              <router-link to="/admin/administrator"><el-menu-item index="n43"><i class="el-icon-arrow-right"></i>管理员</el-menu-item></router-link>
+              <router-link to="/admin/normal-settings"><el-menu-item index="n51"><i class="el-icon-arrow-right"></i>一般设置</el-menu-item></router-link>
+              <router-link to="/admin/bottom-settings"><el-menu-item index="n52"><i class="el-icon-arrow-right"></i>底部设置</el-menu-item></router-link>
             </el-submenu>
           </el-menu>
         </div>
         <!-- 右主区 -->
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 p-4">
+        <main role="main" class="sc-main col-sm-9 ml-sm-auto col-md-10 p-4">
           <nuxt/>
         </main>
       </div>
@@ -76,22 +80,50 @@
 </template>
 
 <style>
+  /* 通用全局样式 */
   body{
     background-color: #e9eef3;
     padding-top: 60px;
     font-weight: 200;
+    /* 右边恒常显示滚动区，避免右主区域高度变化，引起UI在x方向的抖动 */
+    overflow-y: scroll;
+    scrollbar-face-color: #b46868;
   }
+  /* 重写bootstrap-v4样式 */
   /* 去除上传图片示例的圆角 */
   .img-thumbnail {
     border-radius: 0;
-}
+  }
+  /* 重写element-ui样式 */
   /* 所有表单的上下间隔都太大了
   17/11，重新审视，还是默认有22个px间隔比较好 */
-  /* .el-form-item {
-    margin-bottom: 22px;
-  } */
+  .el-form-item {
+    /* margin-bottom: 22px; */
+  }
   .el-button{
     font-weight: 100;
+  }
+  .el-table label {
+    margin-bottom: 0 !important;
+  }
+  /* 表格头部自定义背景色 */
+  .el-table thead tr{
+    background-color: #d8d8d8 !important;
+    color: #717171;
+  }
+  /* css过渡动画 */
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to{
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  /* 自定义样式 */
+  .sc-main {
   }
   .sc-sidemenu a {
     text-decoration: none;
@@ -108,9 +140,26 @@
     left: 0;
     padding: 0;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
     border-right: 1px solid #eee;
     color:#e0e0e0;
+  }
+  /* 美化chrome默认的滚动条 */
+  ::-webkit-scrollbar {
+    /* 使用0或10px都有一个不错的外观 */
+    width: 10px;
+    height:10px;
+  }
+  /*滑块*/
+  ::-webkit-scrollbar-thumb {
+      background-color: #D1D7DF;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+      background-color: #D1D7DF;
+  }
+  /*滑道*/
+  ::-webkit-scrollbar-track {
+      background-color:#e9eef3;
   }
 </style>
 

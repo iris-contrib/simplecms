@@ -127,15 +127,8 @@ export default {
 </script>
 
 <style>
-.el-table label {
-    margin-bottom: 0 !important;
-}
 .el-pagination button, .el-pagination li {
     background-color: transparent !important;
-}
-thead tr{
-  background-color: #d8d8d8 !important;
-  color: #717171;
 }
 </style>
 

@@ -10,9 +10,7 @@
         stripe
         style="width: 100%">
         </el-table-column>
-        <el-table-column
-          label="日期"
-          width="180">
+        <el-table-column label="日期" width="180">
           <template slot-scope="scope">
             <i class="el-icon-check"></i>&nbsp;
             <span>{{ scope.row.date }}</span>

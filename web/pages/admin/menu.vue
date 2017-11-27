@@ -5,7 +5,7 @@
       <p class="small text-muted pl-4">第一个菜单“首页”是不可编辑的</p>
     </div>
     <div class="sc-container" style="width:970px;z-index:100;margin:0 auto;">
-      <el-menu class="sc-topmenu" :default-active="activeIndex1" mode="horizontal" @select="handleSelect" background-color="#006696" text-color="#f3f3f3" active-text-color="#fff">
+      <el-menu class="sc-topmenu" mode="horizontal" background-color="#006696" text-color="#f3f3f3" active-text-color="#fff">
         <el-menu-item index="1"><a href="/">首页</a></el-menu-item>
         <template v-for="item in data4[0].children">
           <el-submenu v-if="item.children" :index="item.id" v-bind:key="item.id">
@@ -14,7 +14,7 @@
               <a :href="subitem.link">{{subitem.label}}</a>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item v-else :index="item.id"><a :href="item.link">{{item.label}}</a></el-menu-item>
+          <el-menu-item v-else :index="''+item.id" v-bind:key="item.id"><a :href="item.link">{{item.label}}</a></el-menu-item>
         </template>
       </el-menu>
     </div>
@@ -23,31 +23,38 @@
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;菜单树</p>
       <p class="small text-muted pl-4">单击菜单名称编辑</p>
     </div>
-    <el-tree
-      :data="data4"
-      :props="defaultProps"
-      :show-checkbox="false"
-      node-key="id"
-      default-expand-all
-      :expand-on-click-node="false"
-      :render-content="renderContent" class="p-2" style="width:auto;max-width:500px;">
-    </el-tree>
+    <div class="pl-4">
+      <el-tree
+        :data="data4"
+        :props="defaultProps"
+        :show-checkbox="false"
+        node-key="id"
+        default-expand-all
+        :expand-on-click-node="false"
+        :render-content="renderContent" class="p-2" style="width:auto;max-width:500px;">
+      </el-tree>
+    </div>
     <!-- 单项编辑 -->
     <template v-if="currentEditingNode.id">
-      <p class="lead pt-3"><i class="el-icon-arrow-down"></i>&nbsp;单项编辑</p>
-      <el-form :inline="true" :model="currentEditingNode" class="demo-form-inline">
-        <el-form-item class="mb-0" label="标题">
-          <el-input v-model.lazy="currentEditingNode.label" placeholder="text"></el-input>
-        </el-form-item>
-        <el-form-item class="mb-0" label="链接">
-          <el-input v-model.lazy="currentEditingNode.link" placeholder="link"></el-input>
-        </el-form-item>
-        <el-form-item class="mb-0">
-          <el-button @click="editNodeCancel" type="text">取消</el-button>
-        </el-form-item>
-      </el-form>
+      <div class="pt-5">
+        <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;单项编辑</p>
+        <p class="small text-muted pl-4">操作说明</p>
+      </div>
+      <div class="pl-4">
+        <el-form :inline="true" :model="currentEditingNode" class="demo-form-inline">
+          <el-form-item class="mb-0" label="标题">
+            <el-input v-model.lazy="currentEditingNode.label" placeholder="text"></el-input>
+          </el-form-item>
+          <el-form-item class="mb-0" label="链接">
+            <el-input v-model.lazy="currentEditingNode.link" placeholder="link"></el-input>
+          </el-form-item>
+          <el-form-item class="mb-0">
+            <el-button @click="editNodeCancel" type="text">取消</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
     </template>
-    <div class="pt-5">
+    <div class="pl-4 pt-5">
       <el-badge is-dot class="item">
         <el-button icon="el-icon-upload2" type="primary">发布</el-button>
       </el-badge>

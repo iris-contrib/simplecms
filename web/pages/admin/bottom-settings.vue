@@ -33,7 +33,7 @@
         <el-form-item label="公众号">
           <el-input style="max-width:300px" value="公众号名称" placeholder="text"></el-input>
           <br/>
-          <img class="img-thumbnail" v-holder="{img:'80x80', text:'二维码', fg:'dcdcdc'}">
+          <img class="img-thumbnail" v-holder="{img:'100x100', text:'二维码', fg:'dcdcdc'}">
         </el-form-item>
         <el-form-item label="单位信息">
           <el-input style="max-width:500px" placeholder="名称"></el-input>
