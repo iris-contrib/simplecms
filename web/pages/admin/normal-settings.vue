@@ -2,13 +2,14 @@
     <div class="pr-4">
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;站点设置</p>
-      <p class="small text-muted pl-4">单击名称编辑</p>
+      <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
       <el-form v-model="siteSettings" class="demo-form-inline" label-width="80px" style="max-width:1080px">
         <el-form-item label="顶部图片">
           <img v-if="siteSettings.headerImage" class="img-thumbnail" :src="siteSettings.headerImage">
-          <img v-else class="img-thumbnail" v-holder="{img:'1000x130', text:'1000x1300', fg:'dcdcdc'}">
+          <img v-else class="img-thumbnail" v-holder="{img:'1000x130', text:'1000x130', fg:'dcdcdc'}">
+          <el-button size="small" type="default" icon="el-icon-upload2">上传图片</el-button>
         </el-form-item>
         <el-form-item label="默认标题">
           <el-input style="max-width:300px" v-model="siteSettings.defaultTitle" placeholder="text"></el-input>

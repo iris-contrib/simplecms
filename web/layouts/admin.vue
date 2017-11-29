@@ -89,6 +89,9 @@
     overflow-y: scroll;
     scrollbar-face-color: #b46868;
   }
+  li.is-active {
+    background-color: #434A50 !important;
+  }
   /* 重写bootstrap-v4样式 */
   /* 去除上传图片示例的圆角 */
   .img-thumbnail {

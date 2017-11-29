@@ -29,11 +29,13 @@
         </el-form-item>
         <el-form-item label="LOGO">
           <img class="img-thumbnail" v-holder="{img:'280x60', text:'280x60', fg:'dcdcdc'}">
+          <el-button size="small" type="default" icon="el-icon-upload2">上传图片</el-button>
         </el-form-item>
         <el-form-item label="公众号">
           <el-input style="max-width:300px" value="公众号名称" placeholder="text"></el-input>
           <br/>
-          <img class="img-thumbnail" v-holder="{img:'100x100', text:'二维码', fg:'dcdcdc'}">
+          <img class="img-thumbnail" v-holder="{img:'100x100', text:'二维码图片100x100', fg:'dcdcdc'}">
+          <el-button size="small" type="default" icon="el-icon-upload2">上传图片</el-button>
         </el-form-item>
         <el-form-item label="单位信息">
           <el-input style="max-width:500px" placeholder="名称"></el-input>

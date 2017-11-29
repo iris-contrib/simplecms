@@ -74,30 +74,29 @@ var id = 3
 export default {
   layout: 'admin',
   methods: {
-    onEdit (index, row) {
+    // 转换编辑状态为目标状态，如果当前在其它状态，先转为none状态
+    changeEditingModeTo (newMode) {
       if (this.currentEditingMode === 'none') {
-        // 每次开始编辑时，均是拷贝一个数据的副本
-        this.editingAdminUser = Object.assign({}, this.adminUsers[index])
-        this.currentEditingMode = 'edit'
-      } else if (this.currentEditingMode === 'edit') {
-        this.currentEditingMode = 'none'
+        this.currentEditingMode = newMode
       } else {
         this.currentEditingMode = 'none'
+        setTimeout(() => {
+          console.log('--')
+          this.currentEditingMode = newMode
+        }, 500)
       }
+    },
+    onEdit (index, row) {
+      this.changeEditingModeTo('edit')
+      this.editingAdminUser = Object.assign({}, this.adminUsers[index])
     },
     onDelete (index, row) {
       this.adminUsers.splice(index, 1)
       // console.log(index, row)
     },
     onNew () {
-      if (this.currentEditingMode === 'none') {
-        this.editingAdminUser = {}
-        this.currentEditingMode = 'new'
-      } else if (this.currentEditingMode === 'new') {
-        this.currentEditingMode = 'none'
-      } else {
-        this.currentEditingMode = 'none'
-      }
+      this.changeEditingModeTo('new')
+      this.editingAdminUser = {}
     },
     onCancel () {
       this.currentEditingMode = 'none'
@@ -151,6 +150,8 @@ export default {
     }
   },
   components: {
+  },
+  mounted: function () {
   }
 }
 </script>
