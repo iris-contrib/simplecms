@@ -1,0 +1,39 @@
+/* 组合图片居中上传按钮 */
+.sc-uploadimg {
+  position: relative;
+  color: #ababab;
+  background: #f7f8f9;
+}
+.sc-uploadimg img{
+  border: solid 1px #d8dce5;
+}
+.sc-uploadimg:hover {
+  cursor: pointer;
+}
+.sc-uploadimg .sc-uploadlbl {
+  opacity: 0;
+  position: relative;
+  top: -.5em;
+  transition: all .2s;
+}
+.sc-uploadimg:hover .sc-uploadlbl {
+  opacity: 1;
+  top: 0;
+}
+.sc-uploadimg i {
+  font-size: 32px;
+  opacity: .5;
+}
+.sc-uploadimg:hover i {
+  opacity: 1;
+}
+.sc-uploadimg .sc-uploadbtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1em;
+  margin-top: .5em;
+}
+/* 组合图片居中上传按钮结束 */

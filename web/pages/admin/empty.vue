@@ -2,7 +2,7 @@
     <div class="pr-4">
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;分类树</p>
-      <p class="small text-muted pl-4">单击名称编辑</p>
+      <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
     </div>

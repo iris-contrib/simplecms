@@ -2,7 +2,7 @@
   <div class="pr-4">
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;新增内容</p>
-      <p class="small text-muted pl-4">无操作说明</p>
+      <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
       <el-input class="sc-content-title" placeholder="标题" v-model="form.name"></el-input>

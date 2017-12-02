@@ -2,7 +2,7 @@
     <div class="pr-4">
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;站点设置</p>
-      <p class="small text-muted pl-4">单击名称编辑</p>
+      <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
       <el-form v-model="siteSettings" class="demo-form-inline" label-width="80px" style="max-width:1080px">
@@ -28,14 +28,24 @@
           </el-footer>
         </el-form-item>
         <el-form-item label="LOGO">
-          <img class="img-thumbnail" v-holder="{img:'280x60', text:'280x60', fg:'dcdcdc'}">
-          <el-button size="small" type="default" icon="el-icon-upload2">上传图片</el-button>
+          <div class="sc-uploadimg" style="width: 280px">
+            <img class="img-fluid" v-holder="{img:'280x60', text:' ', bg:'ffffff', fg:'e9eef4'}">
+            <div class="sc-uploadbtn">
+              <i class="el-icon-picture"></i><br/><span class="sc-uploadlbl small">上传图片</span>
+            </div>
+          </div>
+          <small class="form-text text-muted m-0">在网站底部显示的LOGO图片，尺寸280x60px</small>
         </el-form-item>
         <el-form-item label="公众号">
           <el-input style="max-width:300px" value="公众号名称" placeholder="text"></el-input>
           <br/>
-          <img class="img-thumbnail" v-holder="{img:'100x100', text:'二维码图片100x100', fg:'dcdcdc'}">
-          <el-button size="small" type="default" icon="el-icon-upload2">上传图片</el-button>
+          <div class="sc-uploadimg" style="width: 100px">
+            <img class="img-fluid" v-holder="{img:'100x100', text:' ', bg:'ffffff', fg:'e9eef4'}">
+            <div class="sc-uploadbtn">
+              <i class="el-icon-picture"></i><br/><span class="sc-uploadlbl small">上传图片</span>
+            </div>
+          </div>
+          <small class="form-text text-muted m-0">公众号二维码图片，尺寸100x100px</small>
         </el-form-item>
         <el-form-item label="单位信息">
           <el-input style="max-width:500px" placeholder="名称"></el-input>
@@ -46,8 +56,8 @@
           <el-input style="max-width:500px" placeholder="标题"></el-input><br/>
           <el-input style="max-width:500px" placeholder="链接"></el-input>
           &nbsp;
-          <el-button type="danger" size="mini" icon="el-icon-minus">删除</el-button>
           <el-button type="success" size="mini" icon="el-icon-plus">添加</el-button>
+          <el-button type="danger" size="mini" icon="el-icon-minus">删除</el-button>
         </el-form-item>
         <el-form-item class="pt-2">
           <el-button type="primary">保存</el-button>

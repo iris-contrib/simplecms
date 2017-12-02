@@ -3,7 +3,7 @@
     <!-- 分类树 -->
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;分类树</p>
-      <p class="small text-muted pl-4">单击名称编辑</p>
+      <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
       <el-tree
@@ -100,7 +100,7 @@ export default {
               <span>{node.label}</span>
             </span>
             <span>
-              <el-button size="mini" type="info" on-click={ () => this.append(data) }>添加子项</el-button>
+              <el-button size="mini" type="success" on-click={ () => this.append(data) }>添加子项</el-button>
               <el-button size="mini" type="danger" on-click={ () => this.remove(node, data) }>移除</el-button>
             </span>
           </span>)
@@ -111,7 +111,7 @@ export default {
               <span><a href="javascript:;" on-click={ () => this.edit(node, data) }>{node.label}</a></span>
             </span>
             <span>
-              <el-button size="mini" type="info" on-click={ () => this.append(data) }>添加子项</el-button>
+              <el-button size="mini" type="success" on-click={ () => this.append(data) }>添加子项</el-button>
               <el-button size="mini" type="danger" on-click={ () => this.remove(node, data) }>移除</el-button>
             </span>
           </span>)

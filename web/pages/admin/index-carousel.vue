@@ -2,7 +2,7 @@
   <div class="pr-4">
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;轮播图列表</p>
-      <p class="small text-muted pl-4">选择后编辑</p>
+      <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
       <el-table
@@ -23,7 +23,7 @@
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
-            <el-button size="mini" type="info" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+            <el-button size="mini" type="success" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
             <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
           </template>
         </el-table-column>
@@ -45,8 +45,13 @@
           <el-input  style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="图片">
-          <!-- 先引入holder文件才可以使用，src的地址与实际的js文件地址没有关系 -->
-          <img class="img-thumbnail" v-holder="{img:'500x200',theme: 'gray', text:'500x200'}">
+          <div class="sc-uploadimg" style="width: 280px">
+            <img class="img-fluid" v-holder="{img:'500x200', text:' ', bg:'ffffff', fg:'e9eef4'}">
+            <div class="sc-uploadbtn">
+              <i class="el-icon-picture"></i><br/><span class="sc-uploadlbl small">上传图片</span>
+            </div>
+          </div>
+          <small class="form-text text-muted mt-0">轮播图图片，尺寸500x200px</small>
         </el-form-item>
         <el-form-item class="pt-2">
           <el-button type="primary">保存</el-button>

@@ -84,7 +84,7 @@
   body{
     background-color: #e9eef3;
     padding-top: 60px;
-    font-weight: 200;
+    font-weight: 300;
     /* 右边恒常显示滚动区，避免右主区域高度变化，引起UI在x方向的抖动 */
     overflow-y: scroll;
     scrollbar-face-color: #b46868;

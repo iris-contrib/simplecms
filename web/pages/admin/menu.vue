@@ -2,7 +2,7 @@
   <div>
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;效果预览</p>
-      <p class="small text-muted pl-4">第一个菜单“首页”是不可编辑的</p>
+      <p class="small text-muted pl-4">操作说明，第一个菜单“首页”是不可编辑的</p>
     </div>
     <div class="sc-container" style="width:970px;z-index:100;margin:0 auto;">
       <el-menu class="sc-topmenu" mode="horizontal" background-color="#006696" text-color="#f3f3f3" active-text-color="#fff">
@@ -120,7 +120,7 @@ export default {
               <span>{node.label}</span>
             </span>
             <span>
-              <el-button size="mini" type="info" on-click={ () => this.append(data) }>添加子项</el-button>
+              <el-button size="mini" type="success" on-click={ () => this.append(data) }>添加子项</el-button>
               <el-button size="mini" type="danger" on-click={ () => this.remove(node, data) }>移除</el-button>
             </span>
           </span>)
@@ -131,7 +131,7 @@ export default {
               <span><a href="javascript:;" on-click={ () => this.edit(node, data) }>{node.label}</a></span>
             </span>
             <span>
-              <el-button size="mini" type="info" on-click={ () => this.append(data) }>添加子项</el-button>
+              <el-button size="mini" type="success" on-click={ () => this.append(data) }>添加子项</el-button>
               <el-button size="mini" type="danger" on-click={ () => this.remove(node, data) }>移除</el-button>
             </span>
           </span>)

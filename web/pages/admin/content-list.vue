@@ -2,7 +2,7 @@
   <div class="pr-4">
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;内容列表</p>
-      <p class="small text-muted pl-4">无操作说明</p>
+      <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
       <el-form ref="form">
@@ -41,7 +41,7 @@
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
-            <el-button size="mini" type="info" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+            <el-button size="mini" type="success" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
             <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
           </template>
         </el-table-column>

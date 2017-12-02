@@ -8,8 +8,13 @@
       <el-form v-model="siteSettings" class="demo-form-inline" label-width="80px" style="max-width:1080px">
         <el-form-item label="顶部图片">
           <img v-if="siteSettings.headerImage" class="img-thumbnail" :src="siteSettings.headerImage">
-          <img v-else class="img-thumbnail" v-holder="{img:'1000x130', text:'1000x130', fg:'dcdcdc'}">
-          <el-button size="small" type="default" icon="el-icon-upload2">上传图片</el-button>
+          <div v-else class="sc-uploadimg" style="width:1000px">
+            <img class="img-fluid" v-holder="{img:'1000x130', text:' ', bg:'ffffff', fg:'e9eef4'}">
+            <div class="sc-uploadbtn">
+              <i class="el-icon-picture"></i><br/><span class="sc-uploadlbl">上传图片</span>
+            </div>
+          </div>
+          <small class="form-text text-muted m-0">在网站顶部显示的宽屏图片，一般放包括LOGO的院校风景图，尺寸1000x130px</small>
         </el-form-item>
         <el-form-item label="默认标题">
           <el-input style="max-width:300px" v-model="siteSettings.defaultTitle" placeholder="text"></el-input>
@@ -57,4 +62,5 @@ export default {
 </script>
 
 <style>
+
 </style>
