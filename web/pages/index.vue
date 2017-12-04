@@ -21,7 +21,7 @@
           <el-col :span="8">
             <el-card :body-style="'padding:10px 15px 20px;'">
               <div slot="header" class="clearfix">
-                <span><i class="el-icon-date"></i>&nbsp;卡片名称</span>
+                <span><i class="el-icon-date"></i>&nbsp;简介</span>
               </div>
               <ul style="margin-top: 0;margin-bottom: 0;padding-left: 0;font-size:14px;line-height:25px;list-style:none">
                 <li v-for="o in 8" :key="o" class="text item">
@@ -38,7 +38,7 @@
           <el-col :span="8">
             <el-card :body-style="'padding:10px 15px 20px;'">
               <div slot="header" class="clearfix">
-                <span><i class="el-icon-date"></i>&nbsp;卡片名称</span>
+                <span><i class="el-icon-date"></i>&nbsp;研究院新闻</span>
               </div>
               <ul style="margin-top: 0;margin-bottom: 0;padding-left: 0;font-size:14px;line-height:25px;list-style:none">
                 <li v-for="o in 8" :key="o" class="text item">
@@ -55,7 +55,7 @@
           <el-col :span="8">
             <el-card :body-style="'padding:10px 15px 20px;'">
               <div slot="header" class="clearfix">
-                <span><i class="el-icon-date"></i>&nbsp;卡片名称</span>
+                <span><i class="el-icon-date"></i>&nbsp;国内外新闻</span>
               </div>
               <ul style="margin-top: 0;margin-bottom: 0;padding-left: 0;font-size:14px;line-height:25px;list-style:none">
                 <li v-for="o in 8" :key="o" class="text item">
@@ -79,9 +79,9 @@
           <el-col :span="6">
             <el-card :body-style="'padding: 15px;background: #fff;'">
               <div slot="header" class="clearfix">
-                <span><i class="el-icon-star-on"></i>&nbsp;招贤纳士</span>
+                <span><i class="el-icon-star-on"></i>&nbsp;新闻</span>
               </div>
-              <div style="width:100%;height:212px;background-color:#000;">
+              <div style="width:100%;height:220px;background-color:#000;">
                 <img class="sc-card-image" src="~assets/hamburger.png">
               </div>
               <div style="padding: 15px 0">
@@ -95,13 +95,29 @@
           <el-col :span="6">
             <el-card :body-style="'padding: 15px;background: #fff;'">
               <div slot="header" class="clearfix">
-                <span><i class="el-icon-star-on"></i>&nbsp;招贤纳士</span>
+                <span><i class="el-icon-star-on"></i>&nbsp;科研</span>
               </div>
-              <div style="width:100%;height:212px;background-color:#000;">
+              <div style="width:100%;height:220px;background-color:#000;">
                 <img class="sc-card-image" src="~assets/hamburger.png">
               </div>
               <div style="padding: 15px 0">
-                <p class="text-truncate" style="font-size:16px;margin-bottom: 10px;">新闻动态</p>
+                <p class="text-truncate" style="font-size:16px;margin-bottom: 10px;">科研方向</p>
+                <div style="line-height: 15px;">
+                  <time style="font-size: 12px;color: #666;">伴随计算机技术、脑成像技术、材料科学技术的发展，人们对大脑神经网络的认识正处于逐渐揭开面纱的过程中。</time>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card :body-style="'padding: 15px;background: #fff;'">
+              <div slot="header" class="clearfix">
+                <span><i class="el-icon-star-on"></i>&nbsp;教学</span>
+              </div>
+              <div style="width:100%;height:220px;background-color:#000;">
+                <img class="sc-card-image" src="~assets/hamburger.png">
+              </div>
+              <div style="padding: 15px 0">
+                <p class="text-truncate" style="font-size:16px;margin-bottom: 10px;">学生培养</p>
                 <div style="line-height: 15px;">
                   <time style="font-size: 12px;color: #666;">伴随计算机技术、脑成像技术、材料科学技术的发展，人们对大脑神经网络的认识正处于逐渐揭开面纱的过程中。</time>
                 </div>
@@ -113,27 +129,11 @@
               <div slot="header" class="clearfix">
                 <span><i class="el-icon-star-on"></i>&nbsp;招贤纳士</span>
               </div>
-              <div style="width:100%;height:212px;background-color:#000;">
+              <div style="width:100%;height:220px;background-color:#000;">
                 <img class="sc-card-image" src="~assets/hamburger.png">
               </div>
               <div style="padding: 15px 0">
-                <p class="text-truncate" style="font-size:16px;margin-bottom: 10px;">新闻动态</p>
-                <div style="line-height: 15px;">
-                  <time style="font-size: 12px;color: #666;">伴随计算机技术、脑成像技术、材料科学技术的发展，人们对大脑神经网络的认识正处于逐渐揭开面纱的过程中。</time>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-          <el-col :span="6">
-            <el-card :body-style="'padding: 15px;background: #fff;'">
-              <div slot="header" class="clearfix">
-                <span><i class="el-icon-star-on"></i>&nbsp;招贤纳士</span>
-              </div>
-              <div style="width:100%;height:212px;background-color:#000;">
-                <img class="sc-card-image" src="~assets/hamburger.png">
-              </div>
-              <div style="padding: 15px 0">
-                <p class="text-truncate" style="font-size:16px;margin-bottom: 10px;">新闻动态</p>
+                <p class="text-truncate" style="font-size:16px;margin-bottom: 10px;">招贤纳士</p>
                 <div style="line-height: 15px;">
                   <time style="font-size: 12px;color: #666;">伴随计算机技术、脑成像技术、材料科学技术的发展，人们对大脑神经网络的认识正处于逐渐揭开面纱的过程中。</time>
                 </div>

@@ -6,13 +6,14 @@
     </el-header>
     <!-- 顶部导航 -->
     <div class="sc-container position-sticky sticky-top" style="width:1000px;z-index:2000;">
-      <el-menu class="sc-topmenu" :default-active="activeIndex1" mode="horizontal" @select="handleSelect" background-color="#006696" text-color="#f3f3f3" active-text-color="#fff">
+      <el-menu class="sc-topmenu" :default-active="activeIndex1" mode="horizontal" @select="handleSelect" background-color="#0085c4" text-color="#fefefe" active-text-color="#fff">
         <el-menu-item index="1"><a href="/">首页</a></el-menu-item>
         <el-submenu index="2">
           <template slot="title"><a href="/list">概况</a></template>
-          <el-menu-item index="2-1">选项选项选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3"><a href="/">选项3</a></el-menu-item>
+          <el-menu-item index="2-1">研究院简介</el-menu-item>
+          <el-menu-item index="2-2">院长致辞</el-menu-item>
+          <el-menu-item index="2-3"><a href="/">团队介绍</a></el-menu-item>
+          <el-menu-item index="2-4"><a href="/">大事记</a></el-menu-item>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title"><a href="/">新闻</a></template>
@@ -95,7 +96,7 @@ a:hover{
 }
 .sc-previewbar{
   height:130px;
-  background-image: url('~assets/cuc-nimi-topbg.png');
+  background-image: url('~assets/headerbg.png');
   background-position: center;
   background-repeat: no-repeat;
 }
