@@ -103,7 +103,7 @@ a:hover{
 .el-header{
   padding: 0;
   height: auto !important;
-  background-image: url('~assets/topbg2k.png');
+  background-image: url('~assets/headerbg2k.png');
   background-position: center;
   background-repeat: no-repeat;
 }
