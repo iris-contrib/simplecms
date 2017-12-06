@@ -48,13 +48,13 @@
           </el-col>
           <el-col :span="14" style="text-align:right;padding:30px 30px 0;">
             <p style="flex:1"></p>
-            <p><a href="http://www.cuc.edu.cn/">中传官网</a></p>
-            <p>中国传媒大学脑科学与智能媒体研究院</p>
-            <p>地址：北京市朝阳区定福庄东街1号中国传媒大学 42号楼2层，邮编：100024</p>
+            <p><a href="http://www.fudan.edu.cn/">复旦大学</a></p>
+            <p>复旦大学脑科学研究院</p>
+            <p>地址：上海市医学院路138号明道楼 邮编：200032</p>
           </el-col>
           <el-col :span="4" style="text-align:center;padding:25px">
             <img src="~assets/qrcode.png" style="width:80px;height:80px;" class="image">
-            <p>脑与智能</p>
+            <p>智能科技</p>
           </el-col>
         </el-row>
       </div>
