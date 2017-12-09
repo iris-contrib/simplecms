@@ -35,7 +35,7 @@
                 <i class="el-icon-tickets"></i>
                 <span>内容与分类</span>
               </template>
-              <router-link to="/admin/category"><el-menu-item index="n11"><i class="el-icon-arrow-right"></i>分类管理</el-menu-item></router-link>
+              <router-link to="/admin/category"><el-menu-item index="n11"><i class="el-icon-arrow-right"></i>分类树</el-menu-item></router-link>
               <router-link to="/admin/content-list"><el-menu-item index="n12"><i class="el-icon-arrow-right"></i>内容列表</el-menu-item></router-link>
               <router-link to="/admin/content-new"><el-menu-item index="n13"><i class="el-icon-arrow-right"></i>新增内容</el-menu-item></router-link>
             </el-submenu>

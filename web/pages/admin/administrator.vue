@@ -6,20 +6,22 @@
     </div>
     <div class="pl-4">
       <el-table :data="adminUsers" stripe style="width: 100%">
-        <el-table-column label="状态" width="100">
-          <template slot-scope="scope">
-            <i v-if="scope.row.forbidden" class="el-icon-close text-danger">&nbsp;禁用</i>
-            <i v-else class="el-icon-check text-success">&nbsp;正常</i>
-          </template>
+        <el-table-column type="index" width="50">
         </el-table-column>
-        <el-table-column label="昵称" width="200">
+        <el-table-column label="昵称" width="100">
           <template slot-scope="scope">
             {{ scope.row.nickname }}
           </template>
         </el-table-column>
-        <el-table-column label="邮箱">
+        <el-table-column label="邮箱" width="200">
           <template slot-scope="scope">
             {{ scope.row.email }}
+          </template>
+        </el-table-column>
+        <el-table-column label="状态">
+          <template slot-scope="scope">
+            <i v-if="scope.row.forbidden" class="el-icon-close text-danger">&nbsp;禁用</i>
+            <i v-else class="el-icon-check text-success">&nbsp;正常</i>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="200">

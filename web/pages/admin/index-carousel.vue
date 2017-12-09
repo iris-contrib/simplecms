@@ -5,26 +5,23 @@
       <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
-      <el-table
-        :data="tableData"
-        stripe
-        style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%">
+        <el-table-column type="index" width="50">
         </el-table-column>
-        <el-table-column label="日期" width="180">
+        <el-table-column label="标题与链接">
           <template slot-scope="scope">
-            <i class="el-icon-check"></i>&nbsp;
-            <span>{{ scope.row.date }}</span>
+            <a href="#">{{ scope.row.name }}</a>
           </template>
         </el-table-column>
-        <el-table-column label="姓名">
+        <el-table-column label="图片" width="200">
           <template slot-scope="scope">
-            {{ scope.row.name }}
+            <img src="~assets/hamburger.png" style="width:25px;" />
           </template>
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" width="200">
           <template slot-scope="scope">
             <el-button size="mini" type="success" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
+            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>

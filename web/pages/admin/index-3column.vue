@@ -5,28 +5,28 @@
       <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
-      <el-table
-        :data="tableData"
-        stripe
-        style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%">
+        <el-table-column type="index" width="50">
         </el-table-column>
-        <el-table-column
-          label="日期"
-          width="180">
+        <el-table-column label="图标与名称">
           <template slot-scope="scope">
-            <i class="el-icon-check"></i>&nbsp;
-            <span>{{ scope.row.date }}</span>
+            <i class="el-icon-share"></i>&nbsp;&nbsp;{{ scope.row.name }}
           </template>
         </el-table-column>
-        <el-table-column label="姓名">
+        <el-table-column label="内容类型" width="200">
           <template slot-scope="scope">
             {{ scope.row.name }}
           </template>
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="分类、行数" width="200">
+          <template slot-scope="scope">
+            {{ scope.row.name }}&nbsp;&nbsp;7条
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="200">
           <template slot-scope="scope">
             <el-button size="mini" type="success" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
+            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -40,19 +40,19 @@
     </div>
     <div class="pl-4">
       <el-form style="max-width:1080px;" ref="form" :model="form" label-width="80px">
-        <el-form-item label="栏目名称">
-          <el-input style="max-width:300px" v-model="form.name"></el-input>
+        <el-form-item label="内容类型">
+          <el-input  style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="图标">
           <el-input  style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
-        <el-form-item label="类型">
-          <el-input  style="max-width:300px" v-model="form.name"></el-input>
+        <el-form-item label="栏目名称">
+          <el-input style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="分类">
           <el-input  style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
-        <el-form-item label="数目">
+        <el-form-item label="行数">
           <el-input  style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item class="pt-2">

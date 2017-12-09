@@ -18,28 +18,26 @@
         </el-form-item>
       </el-form>
       <!-- 列表 -->
-      <el-table
-        :data="tableData"
-        stripe
-        style="width: 100%">
-        <el-table-column 
-          type="selection"
-          width="50">
+      <el-table :data="tableData" stripe style="width: 100%">
+        <el-table-column type="selection" width="50">
         </el-table-column>
-        <el-table-column
-          label="日期"
-          width="180">
-          <template slot-scope="scope">
-            <i class="el-icon-check"></i>&nbsp;
-            <span>{{ scope.row.date }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column label="姓名">
+        <el-table-column label="标题">
           <template slot-scope="scope">
             {{ scope.row.name }}
           </template>
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="日期" width="200">
+          <template slot-scope="scope">
+            {{ scope.row.date }}
+          </template>
+        </el-table-column>
+        <el-table-column label="状态" width="200">
+          <template slot-scope="scope">
+            <i v-if="scope.row.forbidden" class="el-icon-close text-danger">&nbsp;禁用</i>
+            <i v-else class="el-icon-check text-success">&nbsp;正常</i>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="200">
           <template slot-scope="scope">
             <el-button size="mini" type="success" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
             <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>

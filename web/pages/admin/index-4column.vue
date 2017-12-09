@@ -5,28 +5,23 @@
       <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
-      <el-table
-        :data="tableData"
-        stripe
-        style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%">
+        <el-table-column type="index" width="50">
         </el-table-column>
-        <el-table-column
-          label="日期"
-          width="180">
+        <el-table-column label="图标名称" width="200">
           <template slot-scope="scope">
-            <i class="el-icon-check"></i>&nbsp;
-            <span>{{ scope.row.date }}</span>
+            <i class="el-icon-share"></i>&nbsp;&nbsp;{{ scope.row.name }}
           </template>
         </el-table-column>
-        <el-table-column label="姓名">
+        <el-table-column label="标题">
           <template slot-scope="scope">
             {{ scope.row.name }}
           </template>
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" width="200">
           <template slot-scope="scope">
             <el-button size="mini" type="success" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
+            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -40,20 +35,25 @@
     </div>
     <div class="pl-4">
       <el-form style="max-width:1080px;" ref="form" :model="form" label-width="80px">
-        <el-form-item label="栏目名称">
-          <el-input style="max-width:300px" v-model="form.name"></el-input>
-        </el-form-item>
         <el-form-item label="图标">
           <el-input  style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
+        <el-form-item label="栏目名称">
+          <el-input style="max-width:300px" v-model="form.name"></el-input>
+        </el-form-item>
         <el-form-item label="图片">
-          <img class="img-thumbnail" v-holder="{img:'220x220',theme: 'gray', text:'220x220'}">
+          <div class="sc-uploadimg" style="width: 200px">
+            <img class="img-fluid" v-holder="{img:'220x220', text:' ', bg:'ffffff', fg:'e9eef4'}">
+            <div class="sc-uploadbtn">
+              <i class="el-icon-picture"></i><br/><span class="sc-uploadlbl small">上传图片</span>
+            </div>
+          </div>
         </el-form-item>
         <el-form-item label="标题">
           <el-input  style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="摘要">
-          <el-input  style="max-width:300px" v-model="form.name"></el-input>
+          <el-input type="textarea" style="max-width:300px" v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item class="pt-2">
           <el-button type="primary">保存</el-button>
