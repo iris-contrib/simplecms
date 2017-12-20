@@ -3,36 +3,34 @@
     <!-- 分类树 -->
     <div>
       <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;分类树</p>
-      <p class="small text-muted pl-4">操作说明</p>
+      <p class="small text-muted pl-4">单击分类名称编辑</p>
     </div>
     <div class="pl-4">
-      <el-tree
-        :data="data4"
-        :props="defaultProps"
-        :show-checkbox="false"
-        node-key="id"
-        default-expand-all
-        :expand-on-click-node="false"
-        :render-content="renderContent" class="p-2" style="width:auto;max-width:500px;">
+      <el-tree :data="data4" :props="defaultProps" :show-checkbox="false" node-key="id" 
+        default-expand-all :expand-on-click-node="false" :highlight-current="true" :render-content="renderContent" 
+        class="p-2" style="width:auto;max-width:460px;">
       </el-tree>
     </div>
     <!-- 单项编辑 -->
-    <template v-if="currentEditingNode.id">
-      <div class="pt-3">
-        <p class="lead mb-0"><i class="el-icon-arrow-down"></i>&nbsp;单项编辑</p>
-        <p class="small text-muted pl-4">保存后才会生效</p>
+    <transition name="slide-fade">
+      <div v-if="currentEditingMode !== 'none'">
+        <div class="pt-4">
+          <p class="lead mb-0"><i class="el-icon-arrow-down"></i>&nbsp;单项编辑</p>
+          <p class="small text-muted pl-4">在保存后生效</p>
+        </div>
+        <div class="pl-4">
+          <el-form :model="currentEditingNode" label-width="40px" style="width:460px">
+            <el-form-item class="mb-0" label="分类" width="">
+              <el-input v-model="currentEditingCatetory" placeholder="text" style="max-width:200px"></el-input>
+            </el-form-item>
+            <el-form-item class="pt-2">
+              <el-button @click="editNodeSave" type="primary">保存</el-button>
+              <el-button @click="onCancel" type="text">取消</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
       </div>
-      <div class="pl-4">
-        <el-form :inline="true" :model="currentEditingNode" class="demo-form-inline">
-          <el-form-item class="mb-0" label="分类">
-            <el-input v-model.lazy="currentEditingCatetory" placeholder="text"></el-input>
-          </el-form-item>
-          <el-form-item class="mb-0">
-            <el-button @click="editNodeSave" type="text">保存</el-button>
-          </el-form-item>
-        </el-form>
-      </div>
-    </template>
+    </transition>
   </div>
 </template>
 
@@ -84,6 +82,10 @@ export default {
       }
       this.currentEditingNode = rawdata
       this.currentEditingCatetory = rawdata.label
+      this.currentEditingMode = 'edit'
+    },
+    onCancel () {
+      this.currentEditingMode = 'none'
     },
     remove (node, data) {
       const parent = node.parent
@@ -124,6 +126,8 @@ export default {
         user: '',
         region: ''
       },
+      // 当前编辑状态：edit、none
+      currentEditingMode: 'none',
       currentEditingNode: {},
       currentEditingCatetory: '',
       data4: [{

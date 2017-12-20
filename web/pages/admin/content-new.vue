@@ -5,10 +5,9 @@
       <p class="small text-muted pl-4">操作说明</p>
     </div>
     <div class="pl-4">
-      <el-input class="sc-content-title" placeholder="标题" v-model="form.name"></el-input>
-      <div>
-        <mavon-editor class="mt-3" :toolbars="toolbars" 
-              code_style="code-github" default_open="edit" :subfield="false" />
+      <el-input class="sc-content-title" placeholder="标题" v-model="form.name" style="width:680px"></el-input>
+      <div style="width:680px">
+        <mavon-editor class="mt-3" :toolbars="toolbars" code_style="code-github" default_open="edit" :subfield="false" />
       </div>
       <el-form ref="form" :model="form" label-width="40px">
         <el-form-item label="分类" class="pt-3">
@@ -18,17 +17,20 @@
               <el-option label="订单号" value="2"></el-option>
             </el-select>
           </el-input>
+          <small class="form-text text-muted mt-0">选择已有分类，或新增分类</small>
         </el-form-item>
         <el-form-item label="作者">
-          <el-input style="width:438px" placeholder="新作者" class="input-with-select">
+          <el-input style="width:438px" placeholder="或作者" class="input-with-select">
             <el-select style="width:218px;" value="1" slot="prepend" placeholder="请选择">
               <el-option label="张二" value="1"></el-option>
               <el-option label="王五" value="2"></el-option>
             </el-select>
           </el-input>
+          <small class="form-text text-muted mt-0">同上</small>
         </el-form-item>
         <el-form-item label="时间">
           <el-date-picker type="date" placeholder="选择日期" v-model="form.date1"></el-date-picker>
+          <small class="form-text text-muted mt-0">默认为当前日期</small>
         </el-form-item>
         <el-form-item label="发表">
           <el-switch v-model="form.publish"></el-switch>
