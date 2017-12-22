@@ -35,24 +35,20 @@
         <p class="lead mb-1"><i class="el-icon-arrow-down"></i>&nbsp;单项编辑</p>
         <p class="small text-muted pl-4">操作说明</p>
       </div>
-      <transition name="slide-fade">
-        <div v-if="currentEditingMode !== 'none'">
-          <div class="pl-4">
-            <el-form :model="currentEditingNode" label-width="40px" style="width:460px">
-              <el-form-item class="mb-0" label="标题">
-                <el-input v-model.lazy="currentEditingNode.label" placeholder="text"></el-input>
-              </el-form-item>
-              <el-form-item class="mb-0" label="链接">
-                <el-input v-model.lazy="currentEditingNode.link" placeholder="link"></el-input>
-              </el-form-item>
-              <el-form-item class="pt-2">
-                <el-button @click="editNodeSave" type="primary">保存</el-button>
-                <el-button @click="editNodeCancel" type="text">取消</el-button>
-              </el-form-item>
-            </el-form>
-          </div>
-        </div>
-      </transition>
+      <div class="pl-4">
+        <el-form :model="currentEditingNode" label-width="40px" style="width:460px">
+          <el-form-item class="mb-0" label="标题">
+            <el-input v-model.lazy="currentEditingNode.label" placeholder="text"></el-input>
+          </el-form-item>
+          <el-form-item class="mb-0" label="链接">
+            <el-input v-model.lazy="currentEditingNode.link" placeholder="link"></el-input>
+          </el-form-item>
+          <el-form-item class="pt-2">
+            <el-button @click="editNodeSave" type="primary">保存</el-button>
+            <el-button @click="editNodeCancel" type="text">取消</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
     </template>
     <div class="pl-4 pt-5">
       <el-badge is-dot class="item">
